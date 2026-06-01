@@ -5,46 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profil - EduCheat</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
+  </script>
 </head>
 <body class="bg-accent min-h-screen pb-20">
-  <header class="bg-white p-4">
+
+  <header class="bg-white p-4 sticky top-0 shadow-sm">
     <h1 class="text-2xl font-bold text-primary text-center">Profil</h1>
   </header>
 
-  <main class="max-w-screen-xl mx-auto px-4 pt-6 text-center">
-    <div class="w-28 h-28 mx-auto bg-gray-300 rounded-3xl"></div>
-    <h2 class="text-2xl font-bold mt-4">Lifia A</h2>
-    <p class="text-gray-500">lifia.alicia@university.ac.id</p>
+  <main class="max-w-screen-xl mx-auto px-4 pt-6">
+    <div class="text-center">
+      <div class="w-28 h-28 mx-auto bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center text-5xl text-white">
+        👩‍🎓
+      </div>
+      <h2 class="text-2xl font-bold mt-4">Lifia A</h2>
+      <p class="text-gray-500">lifia.alicia@university.ac.id</p>
+    </div>
 
-    <div class="mt-8 bg-white rounded-3xl p-6">
+    <div class="mt-10 bg-white rounded-3xl p-6">
       <h3 class="font-semibold mb-4">Progress Kursus</h3>
       <div class="space-y-6">
         <div>
-          <p class="text-sm">UI/UX Fundamentals <span class="float-right text-primary">30%</span></p>
-          <div class="h-2 bg-gray-200 rounded-full mt-2"><div class="h-2 bg-primary rounded-full w-1/3"></div></div>
+          <div class="flex justify-between text-sm mb-2">
+            <span>UI/UX Fundamentals</span>
+            <span class="text-primary">30%</span>
+          </div>
+          <div class="h-2 bg-gray-200 rounded-full"><div class="h-2 bg-primary rounded-full w-1/3"></div></div>
         </div>
       </div>
     </div>
 
-    <button class="mt-8 w-full bg-primary text-white py-4 rounded-2xl font-semibold">
-      Edit Profil
-    </button>
-    <!-- Di bagian bawah profile -->
-<div class="mt-8 px-4">
-  <button onclick="logout()" 
-          class="w-full bg-red-500 text-white py-4 rounded-2xl font-semibold">
-    Keluar Sesi
-  </button>
-</div>
-
-<script>
-  function logout() {
-    if (confirm("Yakin ingin keluar?")) {
-      localStorage.removeItem('currentUser');
-      window.location.href = 'login.html';
-    }
-  }
-</script>
+    <div class="mt-8 px-4">
+      <button onclick="logout()" 
+              class="w-full bg-red-500 hover:bg-red-600 text-white py-4 rounded-2xl font-semibold">
+        Keluar Sesi
+      </button>
+    </div>
   </main>
+
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t">
+    <div class="grid grid-cols-5 py-2 text-center">
+      <a href="index.html" class="text-gray-500"><i class="fa-solid fa-house text-2xl"></i></a>
+      <a href="courses.html" class="text-gray-500"><i class="fa-solid fa-book text-2xl"></i></a>
+      <a href="discussion.html" class="text-gray-500"><i class="fa-solid fa-comment-dots text-2xl"></i></a>
+      <a href="notes.html" class="text-gray-500"><i class="fa-solid fa-note-sticky text-2xl"></i></a>
+      <a href="profile.html" class="text-primary"><i class="fa-solid fa-user text-2xl"></i></a>
+    </div>
+  </nav>
+
+  <script>
+    function logout() {
+      if (confirm("Yakin ingin keluar?")) {
+        localStorage.removeItem('currentUser');
+        window.location.href = 'login.html';
+      }
+    }
+  </script>
 </body>
 </html>

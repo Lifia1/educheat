@@ -3,33 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Onboarding Quiz - EduCheat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>EduCheat - Onboarding Quiz</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      content: ["./**/*.{html,js}"],
+      theme: {
+        extend: {
+          colors: {
+            primary: '#051911',
+            secondary: '#2e685c',
+            "surface": "#fcf9f8",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#424844",
+            "primary-container": "#1a2e25",
+            "surface-container-low": "#f6f3f2",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fcf9f8;
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .quiz-option-active {
+      border: 2px solid #051911;
+      background-color: #f0eded;
+    }
+    .quiz-option-inactive {
+      border: 1px solid #c2c8c3;
+      background-color: #ffffff;
+    }
+    .scroll-hide::-webkit-scrollbar { display: none; }
+  </style>
 </head>
-<body class="bg-accent min-h-screen pb-20">
-  <div class="max-w-md mx-auto px-6 pt-8">
-    <div class="flex justify-between text-sm mb-6">
-      <span>Pertanyaan 2 dari 5</span>
-    </div>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+
+  <!-- Top Progress -->
+  <header class="w-full max-w-md mx-auto bg-surface px-4 pt-6 pb-4 fixed top-0 z-50">
     
-    <h2 class="text-2xl font-semibold mb-8">Apa tujuan karir kamu?</h2>
+    <p class="font-bold text-sm text-on-surface-variant">Kamu tertarik pada materi</p>
+  </header>
 
-    <div class="space-y-3">
-      <div onclick="this.classList.toggle('bg-primary text-white')" 
-           class="bg-white p-5 rounded-2xl border-2 border-transparent hover:border-primary cursor-pointer">
-        UI/UX Designer
+  <main class="flex-1 w-full max-w-md mx-auto px-4 pt-24 pb-24 overflow-y-auto scroll-hide">
+    <!-- Question -->
+    <div class="mb-10">
+      <h1 class="headline text-3xl leading-tight font-semibold text-on-surface">
+        Apa tujuan karir kamu?
+      </h1>
+      <p class="mt-3 text-on-surface-variant text-base">
+        Pilih satu yang paling sesuai untuk menyesuaikan kurikulum belajarmu.
+      </p>
+    </div>
+
+    <!-- Options -->
+    <div class="flex flex-col gap-4" id="options-container">
+      <button onclick="selectOption(this)" class="quiz-option-active flex items-center gap-4 p-5 rounded-2xl text-left transition-all">
+        <div class="w-11 h-11 rounded-2xl bg-primary flex items-center justify-center text-white flex-shrink-0">
+          <span class="material-symbols-outlined text-2xl">check</span>
+        </div>
+        <span class="font-semibold text-lg">UI/UX Designer</span>
+      </button>
+
+      <button onclick="selectOption(this)" class="quiz-option-inactive flex items-center gap-4 p-5 rounded-2xl text-left transition-all hover:border-secondary">
+        <div class="w-11 h-11 rounded-2xl border-2 border-gray-300 flex items-center justify-center flex-shrink-0"></div>
+        <span class="text-lg">Web Developer</span>
+      </button>
+
+      <button onclick="selectOption(this)" class="quiz-option-inactive flex items-center gap-4 p-5 rounded-2xl text-left transition-all hover:border-secondary">
+        <div class="w-11 h-11 rounded-2xl border-2 border-gray-300 flex items-center justify-center flex-shrink-0"></div>
+        <span class="text-lg">Data Analyst</span>
+      </button>
+
+      <button onclick="selectOption(this)" class="quiz-option-inactive flex items-center gap-4 p-5 rounded-2xl text-left transition-all hover:border-secondary">
+        <div class="w-11 h-11 rounded-2xl border-2 border-gray-300 flex items-center justify-center flex-shrink-0"></div>
+        <span class="text-lg">Mobile Developer</span>
+      </button>
+
+      <button onclick="selectOption(this)" class="quiz-option-inactive flex items-center gap-4 p-5 rounded-2xl text-left transition-all hover:border-secondary">
+        <div class="w-11 h-11 rounded-2xl border-2 border-gray-300 flex items-center justify-center flex-shrink-0"></div>
+        <span class="text-lg">Digital Marketing</span>
+      </button>
+    </div>
+
+    <!-- Decorative Image -->
+    <div class="mt-12 relative">
+      <div class="h-52 rounded-3xl overflow-hidden border border-outline-variant">
+        <img src="https://picsum.photos/id/1015/800/400" 
+             class="w-full h-full object-cover opacity-75" alt="Workspace">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
       </div>
-      <div class="bg-white p-5 rounded-2xl">Web Developer</div>
-      <div class="bg-white p-5 rounded-2xl">Data Analyst</div>
-      <div class="bg-white p-5 rounded-2xl">Mobile Developer</div>
     </div>
+  </main>
 
-    <div class="fixed bottom-6 left-0 right-0 max-w-md mx-auto px-6 flex gap-4">
+  <!-- Bottom Navigation -->
+  <footer class="fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant max-w-md mx-auto w-full">
+    <div class="flex gap-3 px-4 py-5">
       <button onclick="history.back()" 
-              class="flex-1 py-4 border border-gray-300 rounded-2xl font-medium">Kembali</button>
-      <button onclick="location.href='onboarding-result.html'" 
-              class="flex-1 bg-primary text-white py-4 rounded-2xl font-semibold">Selanjutnya</button>
+              class="flex-1 h-12 border border-primary text-primary font-medium rounded-2xl hover:bg-gray-50 transition-colors">
+        Kembali
+      </button>
+      <button onclick="nextStep()" 
+              class="flex-[1.5] h-12 bg-primary text-white font-medium rounded-2xl hover:brightness-105 active:scale-95 transition-all">
+        Selanjutnya
+      </button>
     </div>
-  </div>
+  </footer>
+
+  <script>
+    function selectOption(element) {
+      const container = document.getElementById('options-container');
+      const buttons = container.querySelectorAll('button');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('quiz-option-active');
+        btn.classList.add('quiz-option-inactive');
+        
+        // Reset icon
+        const iconContainer = btn.querySelector('div');
+        if (iconContainer) {
+          iconContainer.innerHTML = '';
+          iconContainer.className = 'w-11 h-11 rounded-2xl border-2 border-gray-300 flex items-center justify-center flex-shrink-0';
+        }
+      });
+
+      // Activate selected
+      element.classList.add('quiz-option-active');
+      element.classList.remove('quiz-option-inactive');
+
+      const iconDiv = element.querySelector('div');
+      iconDiv.className = 'w-11 h-11 rounded-2xl bg-primary flex items-center justify-center text-white flex-shrink-0';
+      iconDiv.innerHTML = `<span class="material-symbols-outlined text-2xl">check</span>`;
+    }
+
+    function nextStep() {
+      alert("✅ Jawaban tersimpan! Melanjutkan ke pertanyaan berikutnya...");
+      // Bisa diarahkan ke onboarding-result.html
+      window.location.href = 'onboarding-result.html';
+    }
+  </script>
 </body>
 </html>

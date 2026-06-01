@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buat Diskusi - EduCheat</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
+  </script>
 </head>
 <body class="bg-accent min-h-screen pb-20">
-  <header class="bg-white p-4 flex justify-between items-center sticky top-0">
+  <header class="bg-white p-4 flex justify-between items-center sticky top-0 shadow-sm">
+    <i onclick="history.back()" class="fa-solid fa-arrow-left text-2xl"></i>
     <h1 class="font-semibold text-xl">Buat Diskusi</h1>
-    <button onclick="location.href='discussion.html'" class="bg-primary text-white px-6 py-2 rounded-2xl text-sm">Posting</button>
+    <button onclick="alert('Diskusi berhasil diposting!')" 
+            class="bg-primary text-white px-6 py-2 rounded-2xl text-sm font-medium">Posting</button>
   </header>
 
   <main class="max-w-screen-xl mx-auto px-4 pt-6">
@@ -17,17 +22,18 @@
       <label class="block text-sm font-medium mb-2">Pilih Mata Kuliah</label>
       <div class="flex flex-wrap gap-2">
         <button class="bg-secondary text-white px-5 py-2 rounded-2xl text-sm">Matematika Dasar</button>
-        <button class="bg-white px-5 py-2 rounded-2xl text-sm">Psikologi Kognitif</button>
+        <button class="bg-white border px-5 py-2 rounded-2xl text-sm">Psikologi Kognitif</button>
+        <button class="bg-white border px-5 py-2 rounded-2xl text-sm">+ Lainnya</button>
       </div>
     </div>
 
-    <div>
+    <div class="mb-6">
       <label class="block text-sm font-medium mb-2">Judul Diskusi</label>
       <input type="text" placeholder="Misal: Cara cepat memahami Logaritma..." 
-             class="w-full px-5 py-4 border border-gray-300 rounded-2xl">
+             class="w-full px-5 py-4 border border-gray-300 rounded-2xl focus:outline-none">
     </div>
 
-    <div class="mt-6">
+    <div>
       <label class="block text-sm font-medium mb-2">Apa yang ingin Anda tanyakan atau bagikan?</label>
       <textarea rows="8" placeholder="Tuliskan pemikiran atau pertanyaan akademis Anda..." 
                 class="w-full px-5 py-4 border border-gray-300 rounded-3xl resize-none"></textarea>

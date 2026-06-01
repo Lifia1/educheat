@@ -3,84 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduCheat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>EduCheat - Home</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
   <script>
-    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C8F', accent: '#F5F5F0' } } } }
+    tailwind.config = {
+      content: ["./**/*.{html,js}"],
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1A2E25',
+            secondary: '#437C6F',
+            accent: '#F5F5F0',
+            "surface": "#fcf9f8",
+            "on-surface": "#1b1c1c",
+          }
+        }
+      }
+    }
   </script>
-</head>
-<body class="bg-accent min-h-screen pb-20">
 
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-primary">EduCheat</h1>
-      <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-medium">5 Hari Streak 🔥</span>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fcf9f8;
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="min-h-screen pb-24">
+
+  <!-- Top AppBar -->
+  <header class="flex justify-between items-center w-full px-4 h-16 bg-white border-b border-gray-200 fixed top-0 z-50">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full bg-secondary overflow-hidden">
+        <img src="https://picsum.photos/id/64/200/200" alt="Profile" class="w-full h-full object-cover">
+      </div>
+      <span class="font-bold text-2xl text-primary headline">EduCheat</span>
     </div>
+    <button class="material-symbols-outlined text-2xl text-primary">notifications</button>
   </header>
 
-  <main class="max-w-screen-xl mx-auto px-4 pt-6">
-    <h2 class="text-2xl font-semibold">Selamat datang, Lifia A 👋</h2>
-    <p class="text-gray-600">Lanjutkan belajar hari ini</p>
+  <main class="mt-16 px-4 pt-6 space-y-8">
 
-    <div class="bg-white rounded-3xl p-6 mt-6 shadow">
-      <div class="flex justify-between items-start">
+    <!-- Greeting & Streak -->
+    <section>
+      <div class="flex justify-between items-end">
         <div>
-          <p class="text-primary font-semibold">UI/UX Fundamentals</p>
-          <p class="text-sm text-gray-500">Modul 3 dari 10</p>
+          <p class="text-sm text-gray-500">Selamat datang,</p>
+          <h1 id="userName" class="text-3xl font-semibold text-primary headline">Lifia A</h1>
         </div>
-        <img src="https://picsum.photos/id/1015/80/80" class="w-16 h-16 rounded-2xl object-cover" alt="">
+        <div class="flex items-center bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full gap-1">
+          <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+          <span class="font-medium">5 Hari</span>
+        </div>
       </div>
-      <div class="h-2.5 bg-gray-200 rounded-full mt-5">
-        <div class="h-2.5 bg-primary rounded-full w-[40%]"></div>
-      </div>
-      <button onclick="location.href='course-detail.html'" class="w-full mt-6 bg-primary text-white py-4 rounded-2xl font-semibold">Lanjutkan Belajar</button>
-    </div>
+    </section>
 
-    <h3 class="font-semibold mt-8 mb-4">Rekomendasi Untukmu</h3>
-    <div class="grid grid-cols-1 gap-4" id="recs"></div>
+    <!-- Continue Learning -->
+    <section>
+      <h2 class="text-lg font-semibold mb-3">Lanjutkan Belajar</h2>
+      <div onclick="location.href='course-detail.html'" class="bg-white border border-gray-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer">
+        <div class="flex gap-4">
+          <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-4xl text-white flex-shrink-0">
+            🎨
+          </div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-lg">UI/UX Fundamentals</h3>
+            <p class="text-sm text-gray-500">Modul 3 dari 10</p>
+            <div class="w-full bg-gray-200 h-2 rounded-full mt-4">
+              <div class="bg-secondary h-2 rounded-full w-[35%]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section>
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-lg font-semibold">Kategori</h2>
+        <button class="text-secondary text-sm font-medium">Lihat Semua</button>
+      </div>
+      <div class="flex gap-3 overflow-x-auto custom-scrollbar pb-2">
+        <button class="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-2xl whitespace-nowrap">
+          <span class="material-symbols-outlined">grid_view</span>
+          <span class="font-medium">UI/UX</span>
+        </button>
+        <button class="flex items-center gap-2 bg-white border border-gray-300 px-6 py-3 rounded-2xl whitespace-nowrap hover:bg-gray-50">
+          <span class="material-symbols-outlined">code</span>
+          <span class="font-medium">Web Dev</span>
+        </button>
+        <button class="flex items-center gap-2 bg-white border border-gray-300 px-6 py-3 rounded-2xl whitespace-nowrap hover:bg-gray-50">
+          <span class="material-symbols-outlined">analytics</span>
+          <span class="font-medium">Data</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Rekomendasi -->
+    <section>
+      <h2 class="text-lg font-semibold mb-4">Rekomendasi Untukmu</h2>
+      <div class="flex gap-4 overflow-x-auto custom-scrollbar pb-4" id="recommendations">
+        <!-- Diisi via JavaScript -->
+      </div>
+    </section>
   </main>
 
-  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t">
-    <div class="grid grid-cols-5 py-2 text-center">
-      <a href="index.html" class="text-primary"><i class="fa-solid fa-house text-2xl"></i><p class="text-xs">Home</p></a>
-      <a href="courses.html" class="text-gray-500"><i class="fa-solid fa-book text-2xl"></i><p class="text-xs">Kursus</p></a>
-      <a href="discussion.html" class="text-gray-500"><i class="fa-solid fa-comment-dots text-2xl"></i><p class="text-xs">Diskusi</p></a>
-      <a href="notes.html" class="text-gray-500"><i class="fa-solid fa-note-sticky text-2xl"></i><p class="text-xs">Catatan</p></a>
-      <a href="profile.html" class="text-gray-500"><i class="fa-solid fa-user text-2xl"></i><p class="text-xs">Profil</p></a>
-    </div>
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t h-16 flex items-center justify-around text-xs z-50">
+    <a href="index.html" class="flex flex-col items-center text-primary">
+      <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">home</span>
+      <span>Home</span>
+    </a>
+    <a href="courses.html" class="flex flex-col items-center text-gray-500">
+      <span class="material-symbols-outlined text-2xl">school</span>
+      <span>Kursus</span>
+    </a>
+    <a href="discussion.html" class="flex flex-col items-center text-gray-500">
+      <span class="material-symbols-outlined text-2xl">forum</span>
+      <span>Diskusi</span>
+    </a>
+    <a href="notes.html" class="flex flex-col items-center text-gray-500">
+      <span class="material-symbols-outlined text-2xl">note</span>
+      <span>Catatan</span>
+    </a>
+    <a href="profile.html" class="flex flex-col items-center text-gray-500">
+      <span class="material-symbols-outlined text-2xl">person</span>
+      <span>Profil</span>
+    </a>
   </nav>
 
   <script>
+    // User Name
+    const user = JSON.parse(localStorage.getItem('user')) || { name: "Lifia A" };
+    document.getElementById('userName').textContent = user.name;
+
+    // Recommendations
     const recs = [
-      {id:1, title:"Figma Dasar", desc:"10 Modul • Gratis", img:"https://picsum.photos/id/1015/600/300"},
-      {id:2, title:"HTML & CSS Lanjutan", desc:"20 Modul • Rp 79.000", img:"https://picsum.photos/id/201/600/300"}
+      {
+        title: "Figma Dasar",
+        modules: "10 Modul",
+        price: "Gratis",
+        img: "https://picsum.photos/id/1015/600/300"
+      },
+      {
+        title: "HTML & CSS Mastery",
+        modules: "20 Modul",
+        price: "Rp 79.000",
+        img: "https://picsum.photos/id/201/600/300"
+      },
+      {
+        title: "Data Science 101",
+        modules: "15 Modul",
+        price: "Rp 129.000",
+        img: "https://picsum.photos/id/237/600/300"
+      }
     ];
-    document.getElementById('recs').innerHTML = recs.map(r => `
-      <div class="bg-white rounded-3xl overflow-hidden shadow cursor-pointer" onclick="location.href='course-detail.html'">
-        <img src="${r.img}" class="w-full h-44 object-cover">
+
+    const container = document.getElementById('recommendations');
+    container.innerHTML = recs.map(r => `
+      <div onclick="location.href='course-detail.html'" class="min-w-[240px] bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer">
+        <img src="${r.img}" class="w-full h-36 object-cover">
         <div class="p-4">
-          <h4 class="font-semibold">${r.title}</h4>
-          <p class="text-sm text-gray-500">${r.desc}</p>
+          <h4 class="font-semibold text-base">${r.title}</h4>
+          <p class="text-sm text-gray-500">${r.modules}</p>
+          <div class="flex justify-between items-center mt-3">
+            <span class="font-medium text-secondary">${r.price}</span>
+            <span class="material-symbols-outlined text-primary">chevron_right</span>
+          </div>
         </div>
       </div>
     `).join('');
   </script>
-
-  <script>
-  // Cek apakah sudah login
-  function checkAuth() {
-    const user = localStorage.getItem('currentUser');
-    if (!user) {
-      window.location.href = 'login.html';
-    } else {
-      const userData = JSON.parse(user);
-      // Bisa tambahkan nama user dinamis
-      console.log("Selamat datang,", userData.name);
-    }
-  }
-
-  checkAuth();
-</script>
 </body>
 </html>

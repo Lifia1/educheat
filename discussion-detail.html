@@ -5,29 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detail Diskusi - EduCheat</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
+  </script>
 </head>
 <body class="bg-accent min-h-screen pb-20">
-  <header class="bg-white p-4 sticky top-0">
-    <div class="flex items-center gap-4">
-      <i onclick="history.back()" class="fa-solid fa-arrow-left text-2xl"></i>
-      <h1 class="font-semibold">Detail Diskusi</h1>
-    </div>
+
+  <header class="bg-white p-4 sticky top-0 shadow-sm flex items-center gap-4">
+    <i onclick="history.back()" class="fa-solid fa-arrow-left text-2xl cursor-pointer"></i>
+    <h1 class="font-semibold text-lg">Detail Diskusi</h1>
   </header>
 
-  <main class="max-w-screen-xl mx-auto px-4">
-    <div class="bg-white rounded-3xl p-6 mt-4">
+  <main class="max-w-screen-xl mx-auto px-4 pt-4">
+    <div class="bg-white rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+        <div>
+          <p class="font-medium">Julian D.</p>
+          <p class="text-xs text-gray-500">2 jam yang lalu • Ilmu Hukum</p>
+        </div>
+      </div>
+      
       <h2 class="text-xl font-bold leading-tight">Relevansi teori utilitarianisme Bentham terhadap hukum siber</h2>
-      <p class="mt-6 text-gray-700">Halo rekan-rekan...</p>
+      
+      <div class="mt-6 text-gray-700 leading-relaxed">
+        <p>Halo rekan-rekan, saya sedang mendalami bagaimana prinsip "the greatest happiness for the greatest number" dari Jeremy Bentham dapat diaplikasikan pada regulasi privasi data di ruang siber Indonesia.</p>
+      </div>
+
+      <div class="flex gap-6 mt-8 text-sm">
+        <span class="flex items-center gap-1"><i class="fa-solid fa-thumbs-up"></i> 24</span>
+        <span class="flex items-center gap-1"><i class="fa-solid fa-comment"></i> 12 Jawaban</span>
+      </div>
     </div>
 
     <div class="mt-8">
-      <h3 class="font-medium mb-4">Diskusi (12)</h3>
-      <!-- Jawaban contoh -->
-      <div class="bg-white rounded-3xl p-5 mb-4">
-        <p class="font-medium">Arini Maheswari</p>
-        <p class="text-sm text-gray-600">Menarik sekali, Julian...</p>
+      <h3 class="font-semibold mb-4">Diskusi (12)</h3>
+      <div class="space-y-4">
+        <div class="bg-white rounded-3xl p-5">
+          <p class="font-medium">Arini Maheswari</p>
+          <p class="text-sm text-gray-600 mt-1">Menarik sekali, Julian. Jika kita melihat dari perspektif Bentham...</p>
+        </div>
       </div>
     </div>
   </main>
+
+  <div class="fixed bottom-0 left-0 right-0 bg-white p-4 border-t">
+    <div class="flex gap-3">
+      <input type="text" placeholder="Tulis jawaban Anda..." 
+             class="flex-1 px-5 py-4 border border-gray-300 rounded-2xl">
+      <button class="bg-primary text-white px-8 rounded-2xl">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
 </body>
 </html>

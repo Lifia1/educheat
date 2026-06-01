@@ -5,37 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catatan Saya - EduCheat</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
+  </script>
 </head>
 <body class="bg-accent min-h-screen pb-20">
-  <header class="bg-white p-4 sticky top-0">
+  <header class="bg-white sticky top-0 z-50 shadow-sm p-4">
     <h1 class="text-2xl font-bold text-primary">Catatan Saya</h1>
   </header>
 
   <main class="max-w-screen-xl mx-auto px-4 pt-4" id="notesList"></main>
 
   <div class="fixed bottom-6 right-6">
-    <button onclick="addNote()" class="bg-primary text-white w-14 h-14 rounded-3xl text-3xl shadow-lg">+</button>
+    <button onclick="addNote()" 
+            class="bg-primary text-white w-14 h-14 rounded-3xl text-3xl shadow-lg flex items-center justify-center">
+      <i class="fa-solid fa-plus"></i>
+    </button>
   </div>
+
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t">
+    <div class="grid grid-cols-5 py-2 text-center">
+      <a href="index.html" class="text-gray-500"><i class="fa-solid fa-house text-2xl"></i></a>
+      <a href="courses.html" class="text-gray-500"><i class="fa-solid fa-book text-2xl"></i></a>
+      <a href="discussion.html" class="text-gray-500"><i class="fa-solid fa-comment-dots text-2xl"></i></a>
+      <a href="notes.html" class="text-primary"><i class="fa-solid fa-note-sticky text-2xl"></i></a>
+      <a href="profile.html" class="text-gray-500"><i class="fa-solid fa-user text-2xl"></i></a>
+    </div>
+  </nav>
 
   <script>
     let notes = JSON.parse(localStorage.getItem('notes')) || [
-      {title:"Implementasi Binary Search Tree", date:"12 Okt 2023", content:"Poin penting..."}
+      {title:"Implementasi Binary Search Tree", date:"12 Okt 2023", content:"Poin penting dalam implementasi BST..."}
     ];
 
     function renderNotes() {
-      document.getElementById('notesList').innerHTML = notes.map((note, i) => `
-        <div class="bg-white rounded-3xl p-5 mb-4">
+      document.getElementById('notesList').innerHTML = notes.map(note => `
+        <div class="bg-white rounded-3xl p-5 mb-4 shadow">
           <h3 class="font-semibold">${note.title}</h3>
-          <p class="text-xs text-gray-500">${note.date}</p>
-          <p class="text-sm mt-2 line-clamp-2">${note.content}</p>
+          <p class="text-xs text-gray-500 mt-1">${note.date}</p>
+          <p class="text-sm text-gray-600 mt-3 line-clamp-3">${note.content}</p>
         </div>
       `).join('');
     }
 
     function addNote() {
-      const title = prompt("Judul Catatan:");
+      const title = prompt("Judul Catatan Baru:");
       if (title) {
-        notes.unshift({title, date: new Date().toLocaleDateString('id-ID'), content:"Isi catatan..."});
+        notes.unshift({
+          title: title,
+          date: new Date().toLocaleDateString('id-ID'),
+          content: "Isi catatan baru..."
+        });
         localStorage.setItem('notes', JSON.stringify(notes));
         renderNotes();
       }
