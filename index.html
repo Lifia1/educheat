@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduCheat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C8F', accent: '#F5F5F0' } } } }
+  </script>
+</head>
+<body class="bg-accent min-h-screen pb-20">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-primary">EduCheat</h1>
+      <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-medium">5 Hari Streak 🔥</span>
+    </div>
+  </header>
+
+  <main class="max-w-screen-xl mx-auto px-4 pt-6">
+    <h2 class="text-2xl font-semibold">Selamat datang, Lifia A 👋</h2>
+    <p class="text-gray-600">Lanjutkan belajar hari ini</p>
+
+    <div class="bg-white rounded-3xl p-6 mt-6 shadow">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="text-primary font-semibold">UI/UX Fundamentals</p>
+          <p class="text-sm text-gray-500">Modul 3 dari 10</p>
+        </div>
+        <img src="https://picsum.photos/id/1015/80/80" class="w-16 h-16 rounded-2xl object-cover" alt="">
+      </div>
+      <div class="h-2.5 bg-gray-200 rounded-full mt-5">
+        <div class="h-2.5 bg-primary rounded-full w-[40%]"></div>
+      </div>
+      <button onclick="location.href='course-detail.html'" class="w-full mt-6 bg-primary text-white py-4 rounded-2xl font-semibold">Lanjutkan Belajar</button>
+    </div>
+
+    <h3 class="font-semibold mt-8 mb-4">Rekomendasi Untukmu</h3>
+    <div class="grid grid-cols-1 gap-4" id="recs"></div>
+  </main>
+
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t">
+    <div class="grid grid-cols-5 py-2 text-center">
+      <a href="index.html" class="text-primary"><i class="fa-solid fa-house text-2xl"></i><p class="text-xs">Home</p></a>
+      <a href="courses.html" class="text-gray-500"><i class="fa-solid fa-book text-2xl"></i><p class="text-xs">Kursus</p></a>
+      <a href="discussion.html" class="text-gray-500"><i class="fa-solid fa-comment-dots text-2xl"></i><p class="text-xs">Diskusi</p></a>
+      <a href="notes.html" class="text-gray-500"><i class="fa-solid fa-note-sticky text-2xl"></i><p class="text-xs">Catatan</p></a>
+      <a href="profile.html" class="text-gray-500"><i class="fa-solid fa-user text-2xl"></i><p class="text-xs">Profil</p></a>
+    </div>
+  </nav>
+
+  <script>
+    const recs = [
+      {id:1, title:"Figma Dasar", desc:"10 Modul • Gratis", img:"https://picsum.photos/id/1015/600/300"},
+      {id:2, title:"HTML & CSS Lanjutan", desc:"20 Modul • Rp 79.000", img:"https://picsum.photos/id/201/600/300"}
+    ];
+    document.getElementById('recs').innerHTML = recs.map(r => `
+      <div class="bg-white rounded-3xl overflow-hidden shadow cursor-pointer" onclick="location.href='course-detail.html'">
+        <img src="${r.img}" class="w-full h-44 object-cover">
+        <div class="p-4">
+          <h4 class="font-semibold">${r.title}</h4>
+          <p class="text-sm text-gray-500">${r.desc}</p>
+        </div>
+      </div>
+    `).join('');
+  </script>
+
+  <script>
+  // Cek apakah sudah login
+  function checkAuth() {
+    const user = localStorage.getItem('currentUser');
+    if (!user) {
+      window.location.href = 'login.html';
+    } else {
+      const userData = JSON.parse(user);
+      // Bisa tambahkan nama user dinamis
+      console.log("Selamat datang,", userData.name);
+    }
+  }
+
+  checkAuth();
+</script>
+</body>
+</html>

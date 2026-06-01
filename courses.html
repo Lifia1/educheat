@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semua Kursus - EduCheat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-accent min-h-screen pb-20">
+  <header class="bg-white sticky top-0 z-50 shadow-sm p-4">
+    <h1 class="text-2xl font-bold text-primary">Semua Kursus</h1>
+    <input id="searchInput" type="text" placeholder="Cari materi atau kursus..." 
+           class="w-full mt-3 px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none">
+  </header>
+
+  <main class="max-w-screen-xl mx-auto px-4 pt-4" id="courseList"></main>
+
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t">
+    <div class="grid grid-cols-5 py-2 text-center">
+      <a href="index.html" class="text-gray-500"><i class="fa-solid fa-house text-2xl"></i></a>
+      <a href="courses.html" class="text-primary"><i class="fa-solid fa-book text-2xl"></i></a>
+      <a href="discussion.html" class="text-gray-500"><i class="fa-solid fa-comment-dots text-2xl"></i></a>
+      <a href="notes.html" class="text-gray-500"><i class="fa-solid fa-note-sticky text-2xl"></i></a>
+      <a href="profile.html" class="text-gray-500"><i class="fa-solid fa-user text-2xl"></i></a>
+    </div>
+  </nav>
+
+  <script>
+    const courses = [
+      {title:"UI/UX Dasar: Prinsip & Teori", price:"Rp 149.000", img:"https://picsum.photos/id/1015/600/300"},
+      {title:"Figma Pro: Advanced Component", price:"Gratis", img:"https://picsum.photos/id/133/600/300"}
+    ];
+
+    function renderCourses(filtered) {
+      document.getElementById('courseList').innerHTML = filtered.map(c => `
+        <div class="bg-white rounded-3xl overflow-hidden shadow mb-6 cursor-pointer" onclick="location.href='course-detail.html'">
+          <img src="${c.img}" class="w-full h-52 object-cover">
+          <div class="p-5">
+            <h3 class="font-semibold">${c.title}</h3>
+            <p class="text-sm text-gray-500 mt-1">${c.price}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const filtered = courses.filter(c => c.title.toLowerCase().includes(e.target.value.toLowerCase()));
+      renderCourses(filtered);
+    });
+
+    renderCourses(courses);
+  </script>
+</body>
+</html>
