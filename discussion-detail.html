@@ -1,63 +1,211 @@
-<!DOCTYPE html>
-<html lang="id">
+﻿<!DOCTYPE html>
+<html class="light" lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Diskusi - EduCheat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script>
-    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
-  </script>
-</head>
-<body class="bg-accent min-h-screen pb-20">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCheat - Detail Diskusi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-background": "#1b1c1c",
+                        "secondary-container": "#b0ecdc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#336c60",
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "surface-variant": "#e4e2e1",
+                        "on-tertiary-container": "#91928e",
+                        "primary-container": "#1a2e25",
+                        "inverse-primary": "#b5ccbf",
+                        "outline-variant": "#c2c8c3",
+                        "on-primary-fixed": "#0b1f17",
+                        "inverse-surface": "#303030",
+                        tertiary: "#151714",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "tertiary-fixed": "#e3e3de",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-high": "#eae7e7",
+                        "primary-fixed": "#d0e8da",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#105044",
+                        "primary-fixed-dim": "#b5ccbf",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed": "#b3eedf",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#374b41",
+                        outline: "#737874",
+                        "on-secondary-fixed": "#00201a",
+                        "on-error": "#ffffff",
+                        surface: "#fcf9f8",
+                        "on-surface-variant": "#424844",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#97d2c3",
+                        primary: "#051911",
+                        secondary: "#2e685c",
+                        "surface-bright": "#fcf9f8",
+                        error: "#ba1a1a",
+                        "tertiary-container": "#292b28",
+                        "surface-container": "#f0eded",
+                        background: "#fcf9f8",
+                        "on-primary-container": "#80968a",
+                        "surface-tint": "#4e6358",
+                        "surface-container-highest": "#e4e2e1"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        md: "16px",
+                        sm: "8px",
+                        lg: "24px",
+                        "4xl": "80px",
+                        gutter: "24px",
+                        "2xl": "40px",
+                        xs: "4px",
+                        xl: "32px",
+                        "3xl": "56px"
+                    },
+                    fontFamily: {
+                        "headline-h1-mobile": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-h4": ["Playfair Display"],
+                        "headline-h6": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-h5": ["Playfair Display"],
+                        "headline-h3": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-h2-mobile": ["Playfair Display"],
+                        "headline-h2": ["Playfair Display"],
+                        "headline-h1": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-h1-mobile": ["36px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-h4": ["32px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-h6": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                        "headline-h5": ["24px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-h3": ["40px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-h2-mobile": ["30px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "headline-h2": ["48px", {"lineHeight": "53px", "fontWeight": "700"}],
+                        "headline-h1": ["56px", {"lineHeight": "62px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body { min-height: max(884px, 100dvh); }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<header class="flex justify-between items-center w-full px-margin-mobile h-3xl bg-surface z-50 fixed top-0 border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors" onclick="history.back()">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="font-headline-h6 text-headline-h6-mobile text-on-surface">Detail Diskusi</span>
+</div>
+<span class="text-on-surface-variant text-sm" id="topicTime">2 jam yang lalu</span>
+</header>
+<main class="pt-3xl pb-[190px] px-margin-mobile max-w-screen-md mx-auto">
+<section class="mt-lg bg-surface-container-lowest rounded-3xl border border-outline-variant shadow-sm p-md">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-white">JD</div>
+<div>
+<p class="font-label-md text-label-md text-primary" id="topicAuthor">Julian D.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="topicMeta">Ilmu Hukum</p>
+</div>
+</div>
+<h1 class="font-headline-h6 text-headline-h6 text-primary leading-tight" id="topicTitle">Relevansi teori utilitarianisme Bentham terhadap hukum siber?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mt-md" id="topicContent">Halo rekan-rekan, saya sedang mendalami bagaimana prinsip "the greatest happiness for the greatest number" dari Jeremy Bentham dapat diaplikasikan pada regulasi privasi data di ruang siber Indonesia.</p>
+<div class="flex gap-5 mt-6 text-sm text-on-surface-variant">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">thumb_up</span><span id="topicLikes">24</span></span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">chat_bubble</span><span id="topicReplies">12 Jawaban</span></span>
+</div>
+</section>
+<section class="mt-lg space-y-md" id="replySection">
+<h2 class="font-headline-h6 text-headline-h6 text-primary">Komentar</h2>
+<div class="space-y-md" id="repliesList"></div>
+</section>
+</main>
+<footer class="fixed bottom-0 left-0 w-full p-md bg-surface/80 backdrop-blur-xl border-t border-outline-variant z-50">
+<div class="flex gap-md">
+<input id="replyInput" type="text" placeholder="Tulis jawaban Anda..." class="flex-1 px-md py-md rounded-2xl border border-outline-variant bg-surface-container-lowest outline-none focus:ring-2 focus:ring-secondary" />
+<button id="sendReplyBtn" class="w-20 rounded-2xl bg-primary text-white font-label-md hover:bg-primary-container transition-colors">Kirim</button>
+</div>
+</footer>
+<nav class="fixed bottom-0 left-0 w-full h-4xl z-50 bg-surface flex justify-around items-center px-md pb-safe rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="courses.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm">Courses</span>
+</a>
+<a href="notes.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">note</span>
+<span class="font-label-sm text-label-sm">Catatan</span>
+</a>
+<a href="profile.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        const replies = [
+            {author:'Arini Maheswari', text:'Menarik sekali, Julian. Jika kita melihat dari perspektif Bentham, penting juga mempertimbangkan hak individu.'},
+            {author:'Teguh R.', text:'Menurut saya, hukum siber harus seimbang antara utilitarianisme dan etika privasi.'}
+        ];
+        const repliesList = document.getElementById('repliesList');
+        const replyInput = document.getElementById('replyInput');
+        const sendReplyBtn = document.getElementById('sendReplyBtn');
 
-  <header class="bg-white p-4 sticky top-0 shadow-sm flex items-center gap-4">
-    <i onclick="history.back()" class="fa-solid fa-arrow-left text-2xl cursor-pointer"></i>
-    <h1 class="font-semibold text-lg">Detail Diskusi</h1>
-  </header>
+        function renderReplies() {
+            repliesList.innerHTML = replies.map(reply => `
+                <div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-md">
+                    <p class="font-label-md text-label-md text-primary">${reply.author}</p>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">${reply.text}</p>
+                </div>
+            `).join('');
+        }
 
-  <main class="max-w-screen-xl mx-auto px-4 pt-4">
-    <div class="bg-white rounded-3xl p-6">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
-        <div>
-          <p class="font-medium">Julian D.</p>
-          <p class="text-xs text-gray-500">2 jam yang lalu • Ilmu Hukum</p>
-        </div>
-      </div>
-      
-      <h2 class="text-xl font-bold leading-tight">Relevansi teori utilitarianisme Bentham terhadap hukum siber</h2>
-      
-      <div class="mt-6 text-gray-700 leading-relaxed">
-        <p>Halo rekan-rekan, saya sedang mendalami bagaimana prinsip "the greatest happiness for the greatest number" dari Jeremy Bentham dapat diaplikasikan pada regulasi privasi data di ruang siber Indonesia.</p>
-      </div>
+        sendReplyBtn.addEventListener('click', () => {
+            const text = replyInput.value.trim();
+            if (!text) return;
+            replies.unshift({author:'Anda', text});
+            replyInput.value = '';
+            renderReplies();
+        });
 
-      <div class="flex gap-6 mt-8 text-sm">
-        <span class="flex items-center gap-1"><i class="fa-solid fa-thumbs-up"></i> 24</span>
-        <span class="flex items-center gap-1"><i class="fa-solid fa-comment"></i> 12 Jawaban</span>
-      </div>
-    </div>
-
-    <div class="mt-8">
-      <h3 class="font-semibold mb-4">Diskusi (12)</h3>
-      <div class="space-y-4">
-        <div class="bg-white rounded-3xl p-5">
-          <p class="font-medium">Arini Maheswari</p>
-          <p class="text-sm text-gray-600 mt-1">Menarik sekali, Julian. Jika kita melihat dari perspektif Bentham...</p>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <div class="fixed bottom-0 left-0 right-0 bg-white p-4 border-t">
-    <div class="flex gap-3">
-      <input type="text" placeholder="Tulis jawaban Anda..." 
-             class="flex-1 px-5 py-4 border border-gray-300 rounded-2xl">
-      <button class="bg-primary text-white px-8 rounded-2xl">
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </div>
-  </div>
+        renderReplies();
+    </script>
 </body>
 </html>

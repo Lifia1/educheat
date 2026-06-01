@@ -1,68 +1,218 @@
-<!DOCTYPE html>
-<html lang="id">
+﻿<!DOCTYPE html>
+<html class="light" lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catatan Saya - EduCheat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script>
-    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
-  </script>
-</head>
-<body class="bg-accent min-h-screen pb-20">
-  <header class="bg-white sticky top-0 z-50 shadow-sm p-4">
-    <h1 class="text-2xl font-bold text-primary">Catatan Saya</h1>
-  </header>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCheat - Catatan Saya</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-background": "#1b1c1c",
+                        "secondary-container": "#b0ecdc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#336c60",
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "surface-variant": "#e4e2e1",
+                        "on-tertiary-container": "#91928e",
+                        "primary-container": "#1a2e25",
+                        "inverse-primary": "#b5ccbf",
+                        "outline-variant": "#c2c8c3",
+                        "on-primary-fixed": "#0b1f17",
+                        "inverse-surface": "#303030",
+                        tertiary: "#151714",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "tertiary-fixed": "#e3e3de",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-high": "#eae7e7",
+                        "primary-fixed": "#d0e8da",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#105044",
+                        "primary-fixed-dim": "#b5ccbf",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed": "#b3eedf",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#374b41",
+                        outline: "#737874",
+                        "on-secondary-fixed": "#00201a",
+                        "on-error": "#ffffff",
+                        surface: "#fcf9f8",
+                        "on-surface-variant": "#424844",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#97d2c3",
+                        primary: "#051911",
+                        secondary: "#2e685c",
+                        "surface-bright": "#fcf9f8",
+                        error: "#ba1a1a",
+                        "tertiary-container": "#292b28",
+                        "surface-container": "#f0eded",
+                        background: "#fcf9f8",
+                        "on-primary-container": "#80968a",
+                        "surface-tint": "#4e6358",
+                        "surface-container-highest": "#e4e2e1"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        md: "16px",
+                        sm: "8px",
+                        lg: "24px",
+                        "4xl": "80px",
+                        gutter: "24px",
+                        "2xl": "40px",
+                        xs: "4px",
+                        xl: "32px",
+                        "3xl": "56px"
+                    },
+                    fontFamily: {
+                        "headline-h1-mobile": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-h4": ["Playfair Display"],
+                        "headline-h6": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-h5": ["Playfair Display"],
+                        "headline-h3": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-h2-mobile": ["Playfair Display"],
+                        "headline-h2": ["Playfair Display"],
+                        "headline-h1": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-h1-mobile": ["36px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-h4": ["32px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-h6": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                        "headline-h5": ["24px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-h3": ["40px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-h2-mobile": ["30px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "headline-h2": ["48px", {"lineHeight": "53px", "fontWeight": "700"}],
+                        "headline-h1": ["56px", {"lineHeight": "62px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body { min-height: max(884px, 100dvh); }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<header class="flex justify-between items-center w-full px-margin-mobile h-3xl bg-surface z-50 fixed top-0 border-b border-outline-variant">
+<h1 class="font-headline-h6 text-headline-h6-mobile text-on-surface">Catatan Saya</h1>
+<button id="addNoteBtn" class="px-md py-xs rounded-full bg-primary text-on-primary font-label-sm hover:bg-primary-container transition-colors">
++ Catatan
+</button>
+</header>
+<main class="pt-3xl pb-[180px] px-margin-mobile max-w-screen-md mx-auto">
+<section class="space-y-lg" id="notesList"></section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full h-4xl z-50 bg-surface flex justify-around items-center px-md pb-safe rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="courses.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-all">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm">Courses</span>
+</a>
+<a href="notes.html" class="flex flex-col items-center justify-center text-primary font-bold transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">note</span>
+<span class="font-label-sm text-label-sm">Catatan</span>
+</a>
+<a href="profile.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        const storedNotes = JSON.parse(localStorage.getItem('educheat-notes') || 'null');
+        let notes = storedNotes || [
+            {id: 1, title: 'Implementasi Binary Search Tree', date: '12 Okt 2023', content: 'Poin penting dalam implementasi BST adalah struktur data pohon dan traversal secara rekursif.'},
+            {id: 2, title: 'UX Research untuk Aplikasi Mobile', date: '18 Mei 2024', content: 'Gunakan observasi langsung dan wawancara semi-terstruktur untuk memahami perilaku pengguna.'}
+        ];
 
-  <main class="max-w-screen-xl mx-auto px-4 pt-4" id="notesList"></main>
+        const notesList = document.getElementById('notesList');
+        const addNoteBtn = document.getElementById('addNoteBtn');
 
-  <div class="fixed bottom-6 right-6">
-    <button onclick="addNote()" 
-            class="bg-primary text-white w-14 h-14 rounded-3xl text-3xl shadow-lg flex items-center justify-center">
-      <i class="fa-solid fa-plus"></i>
-    </button>
-  </div>
+        function saveNotes() {
+            localStorage.setItem('educheat-notes', JSON.stringify(notes));
+        }
 
-  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t">
-    <div class="grid grid-cols-5 py-2 text-center">
-      <a href="index.html" class="text-gray-500"><i class="fa-solid fa-house text-2xl"></i></a>
-      <a href="courses.html" class="text-gray-500"><i class="fa-solid fa-book text-2xl"></i></a>
-      <a href="discussion.html" class="text-gray-500"><i class="fa-solid fa-comment-dots text-2xl"></i></a>
-      <a href="notes.html" class="text-primary"><i class="fa-solid fa-note-sticky text-2xl"></i></a>
-      <a href="profile.html" class="text-gray-500"><i class="fa-solid fa-user text-2xl"></i></a>
-    </div>
-  </nav>
+        function renderNotes() {
+            if (!notes.length) {
+                notesList.innerHTML = '<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-md text-center text-on-surface-variant">Belum ada catatan. Tambahkan catatan baru untuk mulai belajar.</div>';
+                return;
+            }
+            notesList.innerHTML = notes.map(note => `
+                <div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-md shadow-sm">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <h2 class="font-headline-h6 text-headline-h6 text-primary">${note.title}</h2>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">${note.date}</p>
+                        </div>
+                        <button class="px-sm py-xs rounded-full border border-outline text-on-surface-variant text-label-sm" onclick="editNote(${note.id})">Edit</button>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-4 line-clamp-3">${note.content}</p>
+                </div>
+            `).join('');
+        }
 
-  <script>
-    let notes = JSON.parse(localStorage.getItem('notes')) || [
-      {title:"Implementasi Binary Search Tree", date:"12 Okt 2023", content:"Poin penting dalam implementasi BST..."}
-    ];
+        window.editNote = function(id) {
+            const note = notes.find(item => item.id === id);
+            if (!note) return;
+            const title = prompt('Ubah judul catatan:', note.title);
+            if (title === null) return;
+            const content = prompt('Ubah isi catatan:', note.content);
+            if (content === null) return;
+            note.title = title;
+            note.content = content;
+            saveNotes();
+            renderNotes();
+        };
 
-    function renderNotes() {
-      document.getElementById('notesList').innerHTML = notes.map(note => `
-        <div class="bg-white rounded-3xl p-5 mb-4 shadow">
-          <h3 class="font-semibold">${note.title}</h3>
-          <p class="text-xs text-gray-500 mt-1">${note.date}</p>
-          <p class="text-sm text-gray-600 mt-3 line-clamp-3">${note.content}</p>
-        </div>
-      `).join('');
-    }
-
-    function addNote() {
-      const title = prompt("Judul Catatan Baru:");
-      if (title) {
-        notes.unshift({
-          title: title,
-          date: new Date().toLocaleDateString('id-ID'),
-          content: "Isi catatan baru..."
+        addNoteBtn.addEventListener('click', () => {
+            const title = prompt('Judul Catatan Baru:');
+            if (!title) return;
+            const content = prompt('Isi catatan:') || '';
+            notes.unshift({
+                id: Date.now(),
+                title,
+                date: new Date().toLocaleDateString('id-ID'),
+                content
+            });
+            saveNotes();
+            renderNotes();
         });
-        localStorage.setItem('notes', JSON.stringify(notes));
-        renderNotes();
-      }
-    }
 
-    renderNotes();
-  </script>
+        renderNotes();
+    </script>
 </body>
 </html>

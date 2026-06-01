@@ -1,61 +1,548 @@
-<!DOCTYPE html>
-<html lang="id">
+﻿<!DOCTYPE html>
+<html class="light" lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Figma Dasar - EduCheat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script>
-    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
-  </script>
-</head>
-<body class="bg-accent pb-20">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCheat - Detail Kursus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-background": "#1b1c1c",
+                        "secondary-container": "#b0ecdc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#336c60",
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "surface-variant": "#e4e2e1",
+                        "on-tertiary-container": "#91928e",
+                        "primary-container": "#1a2e25",
+                        "inverse-primary": "#b5ccbf",
+                        "outline-variant": "#c2c8c3",
+                        "on-primary-fixed": "#0b1f17",
+                        "inverse-surface": "#303030",
+                        tertiary: "#151714",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "tertiary-fixed": "#e3e3de",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-high": "#eae7e7",
+                        "primary-fixed": "#d0e8da",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#105044",
+                        "primary-fixed-dim": "#b5ccbf",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed": "#b3eedf",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#374b41",
+                        outline: "#737874",
+                        "on-secondary-fixed": "#00201a",
+                        "on-error": "#ffffff",
+                        surface: "#fcf9f8",
+                        "on-surface-variant": "#424844",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#97d2c3",
+                        primary: "#051911",
+                        secondary: "#2e685c",
+                        "surface-bright": "#fcf9f8",
+                        error: "#ba1a1a",
+                        "tertiary-container": "#292b28",
+                        "surface-container": "#f0eded",
+                        background: "#fcf9f8",
+                        "on-primary-container": "#80968a",
+                        "surface-tint": "#4e6358",
+                        "surface-container-highest": "#e4e2e1"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        md: "16px",
+                        sm: "8px",
+                        lg: "24px",
+                        "4xl": "80px",
+                        gutter: "24px",
+                        "2xl": "40px",
+                        xs: "4px",
+                        xl: "32px",
+                        "3xl": "56px"
+                    },
+                    fontFamily: {
+                        "headline-h1-mobile": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-h4": ["Playfair Display"],
+                        "headline-h6": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-h5": ["Playfair Display"],
+                        "headline-h3": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-h2-mobile": ["Playfair Display"],
+                        "headline-h2": ["Playfair Display"],
+                        "headline-h1": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-h1-mobile": ["36px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-h4": ["32px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-h6": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                        "headline-h5": ["24px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-h3": ["40px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-h2-mobile": ["30px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "headline-h2": ["48px", {"lineHeight": "53px", "fontWeight": "700"}],
+                        "headline-h1": ["56px", {"lineHeight": "62px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .video-gradient {
+            background: linear-gradient(180deg, rgba(5, 25, 17, 0) 0%, rgba(5, 25, 17, 0.6) 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<header class="flex justify-between items-center w-full px-margin-mobile h-3xl bg-surface z-50 fixed top-0 border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors" onclick="history.back()">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="font-headline-h6 text-headline-h6-mobile text-on-surface">Detail Kursus</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors" id="shareBtn" aria-label="Bagikan kursus">
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqzHgG8roGBBDWoojY8vQPICc1-DI30BxJ-h0Nveoy1RVPYxpDHb31Akeuu6c9BxnD2G-nJheNYjDl01ZTi-szh-jfsWDa7yoHW6zALLM3jkJydgHidRLlI8zjBiM4m0cyWBxqzTHvE9K9W0YZcQNmBDgh5m1uP6TCKoztqcBZua05-PBH5WBKBJMYHOlQC1jwdexGOQPh1qu7YpICbcQzkx2tHU08i7SynCDZtHFNKtxBQgekLGGbZ0g3o4ghrtut0G7Sub_uGhw"/>
+</div>
+</div>
+</header>
+<main class="pt-3xl pb-[210px]">
+<section class="relative w-full aspect-video bg-primary overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" alt="Course hero image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJybO_d7BMHajZtHl0s0AtuqhqauaNSlxIA4VoWlgYoLbyFiPr3gO3J9oYtQ_e54QfKyd8JmO_OONWHc1zldmQHNU-1vDcPmBK-29peghpbB0SbTXSbOJcZK9R09fdPFlqlTrHW1Ht5pwy6AhT3a7RcMNbJdFDeHH8QgJ3hKRXR-HPtIKmc_J4CwObMVmSuRZGczQUUqf4kfAomKVHzzCjPALll_log5nOVqZ2He8Q6A3XyWsUTUZam2nU8x3JNFItIFpdfawdBso"/>
+<div class="absolute inset-0 video-gradient"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 hover:scale-105 transition-transform active:scale-95 group" id="playBtn">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+<div class="h-1 bg-white/30 flex-1 rounded-full overflow-hidden mr-4">
+<div class="w-1/3 h-full bg-secondary"></div>
+</div>
+<span class="text-white font-label-sm text-label-sm">02:15 / 05:00</span>
+</div>
+</section>
+<section class="px-margin-mobile pt-lg pb-md">
+<h1 class="font-headline-h4 text-headline-h4 text-primary leading-tight mb-sm">UI/UX Fundamentals untuk Pemula</h1>
+<div class="flex items-center flex-wrap gap-md mb-lg">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[#FFB800] text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.5</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline text-lg">book</span>
+<span class="font-label-md text-label-md text-on-surface-variant">10 Modul</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline text-lg">schedule</span>
+<span class="font-label-md text-label-md text-on-surface-variant">5 Jam</span>
+</div>
+</div>
+<div class="flex items-center gap-md p-md bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm mb-lg">
+<img class="w-12 h-12 rounded-full object-cover" alt="Instructor photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDLAqtLK9DcCJfrDtNW_03qZZyQlwe7_O8psEtNozXxiyrvF89815qBo_BNkdXuW5rUbG4S0IC0MQdxxHXYv-ApqNSdcRxKSqPlWZkz2F4htaISkQFWewKshOfbeyzHzMvFGEpMMysUSW6ah2tvYpnRYKoBA8vcuMNugBIhcyDj3u6ir5WLAkj9kM686bbWc-gvLFNK8QL910mXdcnaFV1J7j1yQeoXJop_OgonFtUysLdCAbTEdoCp4ue0zW9kxAgrQLEnznPzkg"/>
+<div>
+<h3 class="font-label-md text-label-md text-primary">Budi Santoso</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">UI/UX Designer</p>
+</div>
+<button class="ml-auto px-md py-xs rounded-full border border-primary text-primary font-label-sm text-label-sm hover:bg-primary-fixed transition-colors" id="instructorProfileBtn">
+Profil
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+Kursus ini dirancang untuk pemula yang ingin memulai karir di bidang UI/UX. Anda akan mempelajari dasar-dasar desain, riset pengguna, hingga pembuatan prototipe interaktif.
+</p>
+</section>
+<nav class="sticky top-[56px] bg-background z-40 border-b border-outline-variant">
+<div class="flex px-margin-mobile overflow-x-auto hide-scrollbar" role="tablist">
+<button type="button" class="tab-btn flex-none py-md px-lg border-b-2 border-primary text-primary font-label-md text-label-md" data-tab="materi">Materi</button>
+<button type="button" class="tab-btn flex-none py-md px-lg border-b-2 border-transparent text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" data-tab="diskusi">Diskusi</button>
+<button type="button" class="tab-btn flex-none py-md px-lg border-b-2 border-transparent text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" data-tab="catatan">Catatan</button>
+</div>
+</nav>
+<section class="px-margin-mobile py-lg space-y-lg">
+<div id="materi" class="tab-panel">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-h6 text-headline-h6 text-primary">Daftar Modul</h2>
+<span class="font-label-sm text-label-sm text-secondary">3 / 10 Selesai</span>
+</div>
+<div class="space-y-md">
+<div class="module-item flex items-center gap-md p-md bg-white rounded-xl border border-outline-variant shadow-sm hover:border-secondary transition-colors cursor-pointer group" data-module="1">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary">1. Pengenalan UI/UX</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">10 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">play_circle</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-white rounded-xl border border-outline-variant shadow-sm hover:border-secondary transition-colors cursor-pointer group" data-module="2">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary">2. Design Thinking</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">15 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">play_circle</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-white rounded-xl border border-outline-variant shadow-sm hover:border-secondary transition-colors cursor-pointer group" data-module="3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary">3. Riset Pengguna</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">18 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">play_circle</span>
+</div>
+<div class="module-item active-module flex items-center gap-md p-md bg-white rounded-xl border border-primary-fixed shadow-md border-l-4 border-l-secondary transition-colors cursor-pointer group" data-module="4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">4</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary">4. Wireframing</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">20 mnt</p>
+</div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-transparent opacity-60 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">5</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface-variant">5. Visual Design Principles</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">22 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-transparent opacity-60 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">6</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface-variant">6. Typography Fundamentals</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">18 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-transparent opacity-60 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">7</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface-variant">7. Desain Interaksi</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">16 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-transparent opacity-60 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">8</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface-variant">8. Prototipe Interaktif</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">24 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-transparent opacity-60 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">9</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface-variant">9. Uji Pengguna</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">28 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<div class="module-item flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-transparent opacity-60 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">10</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface-variant">10. Presentasi Portfolio</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">30 mnt</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+</div>
+</div>
+<div id="diskusi" class="tab-panel hidden">
+<div class="space-y-md">
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-md shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-headline-h6 text-headline-h6 text-primary">Buat Pertanyaan Diskusi</h3>
+<p class="font-body-sm text-on-surface-variant mt-1">Kirim pertanyaan atau topik baru untuk kursus ini.</p>
+</div>
+<span class="material-symbols-outlined text-secondary">forum</span>
+</div>
+<div class="space-y-md">
+<div>
+<label class="block text-sm font-semibold text-on-surface">Judul Diskusi</label>
+<input id="discussionTitleInput" type="text" placeholder="Masukkan judul diskusi..." class="w-full rounded-2xl border border-outline-variant bg-white px-md py-sm text-body-md outline-none focus:ring-2 focus:ring-secondary" />
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface">Kategori</label>
+<select id="discussionCategoryInput" class="w-full rounded-2xl border border-outline-variant bg-white px-md py-sm text-body-md outline-none focus:ring-2 focus:ring-secondary">
+<option>UI/UX</option>
+<option>Design Thinking</option>
+<option>Prototipe</option>
+<option>Riset Pengguna</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface">Pertanyaan</label>
+<textarea id="discussionQuestionInput" rows="4" placeholder="Tuliskan pertanyaan atau topik diskusi Anda..." class="w-full rounded-3xl border border-outline-variant bg-white px-md py-sm text-body-md outline-none focus:ring-2 focus:ring-secondary resize-none"></textarea>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface">Lampiran</label>
+<input id="discussionFileInput" type="file" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx" class="w-full rounded-2xl border border-outline-variant bg-white px-md py-sm text-body-md outline-none focus:ring-2 focus:ring-secondary" />
+</div>
+<div id="discussionFileList" class="mt-4 space-y-3 text-sm"></div>
+<button id="postDiscussionBtn" class="w-full mt-4 bg-secondary text-white px-md py-xs rounded-full font-label-sm hover:bg-secondary-container transition-colors">Kirim Diskusi</button>
+</div>
+</div>
+<div id="discussionFeed" class="space-y-md"></div>
+</div>
+</div>
+<div id="catatan" class="tab-panel hidden">
+<div class="space-y-lg">
+<div class="flex items-center justify-between gap-md p-md bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm">
+<div>
+<h3 class="font-headline-h6 text-headline-h6 text-primary">Catatan Kursus</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Ringkasan materi dan catatan penting yang tersimpan.</p>
+</div>
+<a href="notes.html" class="px-md py-xs rounded-full bg-primary text-on-primary font-label-sm hover:bg-primary-container transition-colors">Lihat semua</a>
+</div>
+<div id="courseNotesList" class="space-y-md"></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="fixed bottom-4xl left-0 w-full p-md bg-surface/80 backdrop-blur-xl border-t border-outline-variant z-50 flex gap-md">
+<button class="w-14 h-14 rounded-xl border border-outline flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors" id="bookmarkBtn">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+<button class="flex-1 h-14 bg-primary text-white font-label-md text-label-md rounded-xl hover:bg-primary-container active:scale-95 transition-all shadow-lg flex items-center justify-center gap-sm" id="startBtn">
+Mulai Gratis
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</footer>
+<nav class="fixed bottom-0 left-0 w-full h-4xl z-50 bg-surface flex justify-around items-center px-md pb-safe rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="courses.html" class="flex flex-col items-center justify-center text-primary font-bold transition-all scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-sm text-label-sm">Courses</span>
+</a>
+<a href="notes.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">note</span>
+<span class="font-label-sm text-label-sm">Catatan</span>
+</a>
+<a href="profile.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const panels = document.querySelectorAll('.tab-panel');
+        const moduleItems = document.querySelectorAll('.module-item');
+        const bookmarkBtn = document.getElementById('bookmarkBtn');
+        const startBtn = document.getElementById('startBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const courseNotesList = document.getElementById('courseNotesList');
+        const discussionFileInput = document.getElementById('discussionFileInput');
+        const discussionFileList = document.getElementById('discussionFileList');
+        let bookmarked = false;
 
-  <header class="bg-white sticky top-0 z-50 shadow-sm">
-    <div class="px-4 py-4 flex justify-between items-center">
-      <i onclick="history.back()" class="fa-solid fa-arrow-left text-2xl cursor-pointer"></i>
-      <h1 class="font-semibold text-lg">Figma Dasar</h1>
-      <i class="fa-solid fa-share text-xl"></i>
-    </div>
-  </header>
+        function getCourseNotes() {
+            return JSON.parse(localStorage.getItem('educheat-notes') || '[]');
+        }
 
-  <main class="max-w-screen-xl mx-auto px-4">
-    <div class="h-64 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center text-8xl mb-6">🎨</div>
-    
-    <h2 class="text-2xl font-bold headline">UI/UX Fundamentals untuk Pemula</h2>
-    <div class="flex gap-4 text-sm mt-3 text-gray-600">
-      <span>⭐ 4.5</span>
-      <span>10 Modul</span>
-      <span>5 Jam</span>
-    </div>
+        function renderCourseNotes() {
+            const notes = getCourseNotes();
+            if (!courseNotesList) return;
+            if (!notes.length) {
+                courseNotesList.innerHTML = `
+                    <div class="p-md bg-surface-container-lowest rounded-3xl border border-outline-variant shadow-sm">
+                        <p class="font-body-md text-body-md text-on-surface-variant">Tidak ada catatan yang tersimpan. Buka halaman Catatan untuk membuat ringkasan materi.</p>
+                    </div>`;
+                return;
+            }
+            courseNotesList.innerHTML = notes.slice(0, 3).map(note => `
+                <div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-md shadow-sm">
+                    <div>
+                        <h2 class="font-label-md text-label-md text-primary">${note.title}</h2>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">${note.date}</p>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-4 line-clamp-3">${note.content}</p>
+                </div>`).join('');
+        }
 
-    <div class="bg-white rounded-3xl p-5 mt-6">
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 bg-gray-300 rounded-full"></div>
-        <div>
-          <p class="font-medium">Komida Yanuar</p>
-          <p class="text-sm text-gray-500">UI/UX Designer</p>
-        </div>
-      </div>
-    </div>
+        function renderDiscussionFiles(files) {
+            if (!discussionFileList) return;
+            if (!files.length) {
+                discussionFileList.innerHTML = `<p class="font-body-sm text-on-surface-variant">Belum ada file yang dipilih.</p>`;
+                return;
+            }
+            discussionFileList.innerHTML = files.map(file => `
+                <div class="flex items-center justify-between rounded-2xl border border-outline-variant bg-white p-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-secondary">insert_drive_file</span>
+                        <div>
+                            <p class="font-body-sm text-on-surface">${file.name}</p>
+                            <p class="font-label-sm text-on-surface-variant">${(file.size / 1024).toFixed(1)} KB</p>
+                        </div>
+                    </div>
+                </div>`).join('');
+        }
 
-    <div class="mt-8">
-      <h3 class="font-semibold mb-3">Daftar Modul (3/10 Selesai)</h3>
-      <div class="space-y-3">
-        <div class="bg-white p-4 rounded-2xl flex items-center gap-3">
-          <div class="w-8 h-8 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-lg">✓</div>
-          <div class="flex-1">1. Pengenalan UI/UX</div>
-          <span class="text-sm text-gray-500">10 mnt</span>
-        </div>
-      </div>
-    </div>
-  </main>
+        const discussionTitleInput = document.getElementById('discussionTitleInput');
+        const discussionCategoryInput = document.getElementById('discussionCategoryInput');
+        const discussionQuestionInput = document.getElementById('discussionQuestionInput');
+        const postDiscussionBtn = document.getElementById('postDiscussionBtn');
+        const discussionFeed = document.getElementById('discussionFeed');
 
-  <div class="fixed bottom-0 left-0 right-0 bg-white p-4 border-t">
-    <button class="w-full bg-primary text-white py-4 rounded-2xl font-semibold text-lg">
-      Mulai Gratis
-    </button>
-  </div>
+        const discussionPosts = [
+            {id: 1, category:'UI/UX', time:'1 jam', title:'Tips membuat prototipe cepat', summary:'Bagaimana menyusun alur prototipe supaya jelas saat diuji dengan pengguna awal?', likes:12, replies:5},
+            {id: 2, category:'Design Thinking', time:'2 jam', title:'Cara validasi ide desain', summary:'Apa metode terbaik untuk memvalidasi solusi desain sebelum membuat prototipe lengkap?', likes:8, replies:3}
+        ];
+
+        function renderDiscussionFeed() {
+            if (!discussionFeed) return;
+            discussionFeed.innerHTML = discussionPosts.map(post => `
+                <div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-md shadow-sm cursor-pointer hover:shadow-lg transition-shadow" onclick="location.href='discussion-detail.html?topic=${post.id}'">
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <p class="font-label-sm uppercase tracking-[0.18em] text-secondary">${post.category}</p>
+                            <h3 class="font-headline-h6 text-headline-h6 text-primary mt-xs">${post.title}</h3>
+                        </div>
+                        <span class="font-label-sm text-on-surface-variant">${post.time}</span>
+                    </div>
+                    <p class="font-body-sm text-on-surface-variant">${post.summary}</p>
+                    <div class="flex gap-5 mt-4 text-sm text-on-surface-variant">
+                        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">thumb_up</span>${post.likes}</span>
+                        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">chat_bubble</span>${post.replies} Jawaban</span>
+                    </div>
+                </div>`).join('');
+        }
+
+        function postDiscussion() {
+            const title = discussionTitleInput?.value.trim();
+            const category = discussionCategoryInput?.value || 'Umum';
+            const summary = discussionQuestionInput?.value.trim();
+            if (!title || !summary) {
+                alert('Silakan isi judul dan pertanyaan diskusi terlebih dahulu.');
+                return;
+            }
+            discussionPosts.unshift({
+                id: Date.now(),
+                category,
+                time: 'Baru saja',
+                title,
+                summary,
+                likes: 0,
+                replies: 0
+            });
+            renderDiscussionFeed();
+            discussionTitleInput.value = '';
+            discussionQuestionInput.value = '';
+            if (discussionFileInput) {
+                discussionFileInput.value = '';
+            }
+            renderDiscussionFiles([]);
+            alert('Diskusi Anda telah dibuat.');
+        }
+
+        function activateTab(tabName) {
+            panels.forEach(panel => {
+                panel.classList.toggle('hidden', panel.id !== tabName);
+            });
+            tabs.forEach(tab => {
+                const isActive = tab.dataset.tab === tabName;
+                tab.classList.toggle('border-primary', isActive);
+                tab.classList.toggle('text-primary', isActive);
+                tab.classList.toggle('border-transparent', !isActive);
+                tab.classList.toggle('text-on-surface-variant', !isActive);
+            });
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+        });
+
+        moduleItems.forEach(item => {
+            if (item.classList.contains('locked-module')) return;
+            item.addEventListener('click', () => {
+                moduleItems.forEach(el => el.classList.remove('ring-2', 'ring-secondary', 'scale-95'));
+                item.classList.add('ring-2', 'ring-secondary', 'scale-95');
+                setTimeout(() => item.classList.remove('scale-95'), 150);
+            });
+        });
+
+        bookmarkBtn.addEventListener('click', () => {
+            bookmarked = !bookmarked;
+            bookmarkBtn.classList.toggle('bg-secondary-container', bookmarked);
+            bookmarkBtn.classList.toggle('text-secondary', bookmarked);
+            bookmarkBtn.classList.toggle('border-transparent', bookmarked);
+        });
+
+        startBtn.addEventListener('click', () => {
+            alert('Selamat! Anda siap memulai kursus.');
+        });
+
+        shareBtn.addEventListener('click', () => {
+            alert('Link kursus berhasil disalin!');
+        });
+
+        if (discussionFileInput) {
+            discussionFileInput.addEventListener('change', (event) => {
+                const files = Array.from(event.target.files || []);
+                renderDiscussionFiles(files);
+            });
+            renderDiscussionFiles([]);
+        }
+
+        if (postDiscussionBtn) {
+            postDiscussionBtn.addEventListener('click', postDiscussion);
+        }
+
+        renderDiscussionFeed();
+        renderCourseNotes();
+        activateTab('materi');
+    </script>
 </body>
 </html>
