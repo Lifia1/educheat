@@ -1,30 +1,184 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hasil Onboarding - EduCheat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
-  </script>
-</head>
-<body class="bg-accent min-h-screen">
-  <div class="max-w-md mx-auto px-6 pt-12 text-center">
-    <div class="mx-auto w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center text-4xl mb-6">✅</div>
-    
-    <h2 class="text-3xl font-bold">Profil Belajar Kamu Siap!</h2>
-    <p class="text-gray-600 mt-3">Kami telah menyusun kurikulum terbaik berdasarkan minatmu.</p>
-
-    <div class="bg-white rounded-3xl p-6 mt-10 text-left">
-      <p class="text-sm text-gray-500">Target Karier Utama:</p>
-      <h3 class="text-2xl font-bold text-primary">UI/UX Designer</h3>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduCheat - Profil Belajar Siap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        secondary: "#2e685c",
+                        primary: "#051911",
+                        background: "#fcf9f8",
+                        surface: "#fcf9f8",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#424844",
+                        "outline-variant": "#c2c8c3",
+                        "primary-container": "#1a2e25",
+                        "secondary-container": "#b0ecdc",
+                        "on-primary-fixed": "#0b1f17",
+                        "on-primary": "#ffffff"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "3xl": "56px",
+                        "4xl": "80px"
+                    },
+                    fontFamily: {
+                        "headline-h1": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-h1-mobile": ["36px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-h2": ["48px", {"lineHeight": "53px", "fontWeight": "700"}],
+                        "headline-h4": ["32px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .success-bg-pattern {
+            background-color: #fcf9f8;
+            background-image: radial-gradient(#d0e8da 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .pulse-border {
+            animation: pulse-border 2.5s infinite ease-in-out;
+        }
+        @keyframes pulse-border {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-3xl bg-surface z-50">
+<div class="font-headline-h4 text-headline-h4 text-primary">EduCheat</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-lg success-bg-pattern">
+  <div class="w-full max-w-3xl">
+    <div class="text-center space-y-6">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-secondary-container text-secondary mb-2 shadow-lg">
+        <span class="material-symbols-outlined text-[42px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+      </div>
+      <h1 class="font-headline-h1-mobile md:font-headline-h2 text-headline-h1-mobile md:text-headline-h2 text-primary leading-tight">
+        Profil Belajar Kamu Siap!
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+        Kami telah menyusun kurikulum terbaik berdasarkan minatmu.
+      </p>
     </div>
 
-    <button onclick="location.href='index.html'" 
-            class="mt-12 w-full bg-primary text-white py-4 rounded-2xl font-semibold">
-      Masuk ke Dashboard →
-    </button>
+    <div class="mt-10 bg-white border border-slate-200 rounded-[32px] shadow-[0_30px_80px_rgba(15,23,42,0.08)] overflow-hidden">
+      <div class="grid gap-0 md:grid-cols-[300px_1fr]">
+        <div class="h-72 md:h-auto bg-slate-100 overflow-hidden">
+          <img id="resultImage" class="w-full h-full object-cover" alt="Illustration" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80">
+        </div>
+        <div class="p-8 md:p-10">
+          <div class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-primary-container text-on-primary text-xs font-semibold uppercase tracking-[0.16em]">
+            <span class="material-symbols-outlined text-[16px]">target</span>
+            Hasil Analisis
+          </div>
+          <div class="mt-7 space-y-3">
+            <p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant font-semibold">Target Karier Utama:</p>
+            <h2 id="careerTitle" class="font-headline-h4 text-headline-h4 text-primary">UI/UX Designer</h2>
+          </div>
+          <div id="careerChips" class="mt-6 flex flex-wrap gap-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 max-w-md mx-auto">
+      <button id="dashboardBtn" class="w-full h-14 bg-primary text-on-primary rounded-full font-semibold text-sm hover:bg-primary-container transition-colors shadow-lg flex items-center justify-center gap-2">
+        Masuk ke Dashboard
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+
+    <div class="mt-6 text-center">
+      <p class="text-on-tertiary-container font-label-sm text-label-sm italic">
+        "Pendidikan adalah senjata paling mematikan di dunia." — Nelson Mandela
+      </p>
+    </div>
   </div>
+</main>
+<script>
+    const careerProfiles = {
+        'UI/UX Designer': {
+            chips: ['Design Systems', 'User Research', 'Prototyping'],
+            image: 'https://picsum.photos/id/1025/800/800'
+        },
+        'Web Developer': {
+            chips: ['Frontend', 'Backend', 'API Integration'],
+            image: 'https://picsum.photos/id/1005/800/800'
+        },
+        'Data Analyst': {
+            chips: ['Data Visualization', 'SQL', 'Statistics'],
+            image: 'https://picsum.photos/id/1040/800/800'
+        },
+        'Mobile Developer': {
+            chips: ['Flutter', 'React Native', 'App Architecture'],
+            image: 'https://picsum.photos/id/1050/800/800'
+        },
+        'Digital Marketing': {
+            chips: ['Content Strategy', 'SEO', 'Campaign Analytics'],
+            image: 'https://picsum.photos/id/1060/800/800'
+        }
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedCareer = localStorage.getItem('selectedCareer');
+        if (!savedCareer) {
+            window.location.href = 'onboarding-quiz.html';
+            return;
+        }
+        const profile = careerProfiles[savedCareer] || careerProfiles['UI/UX Designer'];
+        document.getElementById('careerTitle').textContent = savedCareer;
+        document.getElementById('resultImage').src = profile.image;
+        const chipContainer = document.getElementById('careerChips');
+        chipContainer.innerHTML = profile.chips.map(chip => `
+            <div class="px-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-on-surface-variant font-label-sm text-label-sm flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                ${chip}
+            </div>
+        `).join('');
+        document.getElementById('dashboardBtn').addEventListener('click', () => {
+            localStorage.setItem('onboardingComplete', 'true');
+            window.location.href = 'index.html';
+        });
+    });
+</script>
 </body>
 </html>

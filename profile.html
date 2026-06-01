@@ -1,77 +1,303 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil - EduCheat</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script>
-    tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
-  </script>
-</head>
-<body class="bg-accent min-h-screen pb-20">
+﻿<!DOCTYPE html>
 
-  <header class="bg-white p-4 sticky top-0 shadow-sm">
-    <h1 class="text-2xl font-bold text-primary text-center">Profil</h1>
-  </header>
-
-  <main class="max-w-screen-xl mx-auto px-4 pt-6">
-    <div class="text-center">
-      <div class="w-28 h-28 mx-auto bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center text-5xl text-white">
-        👩‍🎓
-      </div>
-      <h2 class="text-2xl font-bold mt-4">Lifia A</h2>
-      <p class="text-gray-500">lifia.alicia@university.ac.id</p>
-    </div>
-
-    <div class="mt-10 bg-white rounded-3xl p-6">
-      <h3 class="font-semibold mb-4">Progress Kursus</h3>
-      <div class="space-y-6">
-        <div>
-          <div class="flex justify-between text-sm mb-2">
-            <span>UI/UX Fundamentals</span>
-            <span class="text-primary">30%</span>
-          </div>
-          <div class="h-2 bg-gray-200 rounded-full"><div class="h-2 bg-primary rounded-full w-1/3"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-8 px-4">
-      <button onclick="logout()" 
-              class="w-full bg-red-500 hover:bg-red-600 text-white py-4 rounded-2xl font-semibold">
-        Keluar Sesi
-      </button>
-    </div>
-  </main>
-
-  <nav class="fixed bottom-0 left-0 w-full h-16 z-50 bg-white border-t border-gray-200 flex justify-around items-center px-4 pb-4 rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
-    <a href="index.html" class="flex flex-col items-center justify-center text-gray-500 transition-all hover:text-secondary">
-      <i class="fa-solid fa-house text-2xl"></i>
-      <span class="text-xs">Home</span>
-    </a>
-    <a href="courses.html" class="flex flex-col items-center justify-center text-gray-500 transition-all hover:text-secondary">
-      <i class="fa-solid fa-book text-2xl"></i>
-      <span class="text-xs">Courses</span>
-    </a>
-    <a href="notes.html" class="flex flex-col items-center justify-center text-gray-500 transition-all hover:text-secondary">
-      <i class="fa-solid fa-note-sticky text-2xl"></i>
-      <span class="text-xs">Catatan</span>
-    </a>
-    <a href="profile.html" class="flex flex-col items-center justify-center text-primary font-bold transition-all">
-      <i class="fa-solid fa-user text-2xl"></i>
-      <span class="text-xs">Profile</span>
-    </a>
-  </nav>
-
-  <script>
-    function logout() {
-      if (confirm("Yakin ingin keluar?")) {
-        localStorage.removeItem('currentUser');
-        window.location.href = 'login.html';
-      }
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCheat - Profil Pengguna</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#b3eedf",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface": "#fcf9f8",
+                        "inverse-surface": "#303030",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "surface-container-highest": "#e4e2e1",
+                        "background": "#fcf9f8",
+                        "secondary": "#2e685c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed-dim": "#b5ccbf",
+                        "on-surface-variant": "#424844",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#105044",
+                        "on-secondary-fixed": "#00201a",
+                        "secondary-container": "#b0ecdc",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c1c",
+                        "primary": "#051911",
+                        "on-tertiary-container": "#91928e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#336c60",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#97d2c3",
+                        "on-primary-fixed": "#0b1f17",
+                        "surface-container-high": "#eae7e7",
+                        "outline": "#737874",
+                        "surface-tint": "#4e6358",
+                        "tertiary-container": "#292b28",
+                        "tertiary": "#151714",
+                        "surface-variant": "#e4e2e1",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#374b41",
+                        "tertiary-fixed": "#e3e3de",
+                        "on-primary-container": "#80968a",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "primary-fixed": "#d0e8da",
+                        "outline-variant": "#c2c8c3",
+                        "inverse-primary": "#b5ccbf",
+                        "primary-container": "#1a2e25"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "4xl": "80px",
+                        "3xl": "56px",
+                        "2xl": "40px",
+                        "unit": "8px",
+                        "md": "16px",
+                        "margin-desktop": "48px",
+                        "lg": "24px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-h1": ["Playfair Display"],
+                        "headline-h4": ["Playfair Display"],
+                        "headline-h2": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "headline-h6": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-h2-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-h5": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "headline-h1-mobile": ["Playfair Display"],
+                        "headline-h3": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                        "headline-h1": ["56px", {"lineHeight": "62px", "fontWeight": "700"}],
+                        "headline-h4": ["32px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-h2": ["48px", {"lineHeight": "53px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-h6": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-h2-mobile": ["30px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-h5": ["24px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-h1-mobile": ["36px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-h3": ["40px", {"lineHeight": "44px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
     }
-  </script>
-</body>
-</html>
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-4xl">
+<!-- Top AppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile h-3xl bg-surface dark:bg-surface-dim z-50 fixed top-0 border-b border-outline-variant dark:border-outline">
+<h1 class="font-headline-h5 text-headline-h5 text-primary dark:text-primary-fixed">EduCheat</h1>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-low transition-colors p-sm rounded-full" data-icon="notifications">notifications</button>
+<div class="w-2xl h-2xl rounded-full bg-primary-container overflow-hidden border border-outline-variant">
+<img alt="Lifia A" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sUClOUdFw7LXATf3BsD3idhAVsfIij6pIjCIVjE55lzeFVDd-nSnn7dpQJwpvLV_AXDIpIL6xP0xPwcMxC31aJ3YxqwIBmdZP2InZBZ_D-V89NsnPUJNSmANiQMijkVRVuJjQpv_Pa9mGFpKd_Hqz7BoQu7Tm_LDgoyv91_9R3kK6dwA7E2X9sxcF6dN8HmD0L4FpTafjn82nLVe0xVHQt-cs-aZT9XK0ytFOLllkVM0teSvOZGFN0rihK1tFNvF-36OeHFsY3Q"/>
+</div>
+</div>
+</header>
+<main class="pt-3xl px-margin-mobile max-w-2xl mx-auto">
+<!-- Profile Header Section -->
+<section class="mt-lg flex flex-col items-center text-center animate-fade-in">
+<div class="relative mb-md">
+<div class="w-[120px] h-[120px] rounded-full border-4 border-secondary-container p-xs overflow-hidden bg-surface-container">
+<img alt="Lifia A" class="w-full h-full object-cover rounded-full" data-alt="A professional studio portrait of a young woman named Lifia A with a warm, confident smile. She is set against a clean, soft-lit background that matches a modern academic aesthetic. The lighting is bright and high-key, emphasizing professional clarity and a trustworthy demeanor in a prestigious educational setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3VVhcbakIDXq-sL0_CWsgp7_7TEOAFZtzyQTc4nNOdOuVc2EQZ08z8aAeCL0gEcHNkUqPx0EO9Nxg7VBqhhW4UlgPoyk6obMQifHIoAVFvB6Gz0FUFET-H3ZFuw_oW-iaYwXbNUHRY1EZgh2pa3ff1qndTrosXVpkWx-tifIWTFrYntsqK5jXMsTIuV-bjpgAtXodP5NhVHLOX0NfHourZ2uaYuwMA50SJ7aCAjzohWkeOkkgRrRZ0B7Zj5YA4eULdejimxrM-70"/>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-on-primary px-sm py-xs rounded-full shadow-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm">5 Hari Streak</span>
+</div>
+</div>
+<h2 class="font-headline-h4 text-headline-h4 text-primary">Lifia A</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">lifia.alicia@university.ac.id</p>
+</section>
+<!-- Section 1: Badge Saya -->
+<section class="mt-2xl">
+<div class="flex justify-between items-center mb-md px-xs">
+<h3 class="font-headline-h6 text-headline-h6 text-primary">Badge Saya</h3>
+<button class="text-secondary font-label-md text-label-md hover:underline transition-all">Lihat Semua</button>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-sm">
+<div class="flex-shrink-0 w-2xl h-2xl bg-secondary-container rounded-xl flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="flex-shrink-0 w-2xl h-2xl bg-secondary-container rounded-xl flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<div class="flex-shrink-0 w-2xl h-2xl bg-secondary-container rounded-xl flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div class="flex-shrink-0 w-2xl h-2xl bg-surface-container-highest rounded-xl flex items-center justify-center shadow-sm grayscale opacity-60">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">psychology</span>
+</div>
+<div class="flex-shrink-0 w-2xl h-2xl bg-surface-container-highest rounded-xl flex items-center justify-center shadow-sm grayscale opacity-60">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">history_edu</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Progress Kursus -->
+<section class="mt-2xl">
+<h3 class="font-headline-h6 text-headline-h6 text-primary mb-md px-xs">Progress Kursus</h3>
+<div class="space-y-md">
+<!-- Course Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h4 class="font-headline-h6 text-label-md text-primary">UI/UX Fundamentals</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 dari 12 Modul Selesai</p>
+</div>
+<span class="font-label-md text-label-md text-secondary">30%</span>
+</div>
+<div class="w-full h-xs bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all duration-700" style="width: 30%"></div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h4 class="font-headline-h6 text-label-md text-primary">Figma Dasar untuk Desainer</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">9 dari 12 Modul Selesai</p>
+</div>
+<span class="font-label-md text-label-md text-secondary">75%</span>
+</div>
+<div class="w-full h-xs bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all duration-700" style="width: 75%"></div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h4 class="font-headline-h6 text-label-md text-primary">HTML &amp; CSS Lanjutan</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">15 dari 15 Modul Selesai</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-green-600 text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md text-secondary">100%</span>
+</div>
+</div>
+<div class="w-full h-xs bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all duration-700" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Sertifikat -->
+<section class="mt-2xl mb-xl">
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md h-3xl rounded-xl flex items-center justify-center gap-md hover:bg-primary transition-all active:scale-95 group shadow-lg">
+<span class="material-symbols-outlined transition-transform group-hover:rotate-12" data-icon="card_membership">card_membership</span>
+                Lihat Sertifikat Saya
+                <span class="material-symbols-outlined ml-auto mr-md" data-icon="chevron_right">chevron_right</span>
+</button>
+</section>
+<!-- Settings Shortcut -->
+<section class="mt-lg border-t border-outline-variant pt-lg space-y-sm">
+<div class="flex items-center gap-md p-md hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md text-on-surface">Pengaturan Akun</span>
+</div>
+<div class="flex items-center gap-md p-md hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="help_outline">help_outline</span>
+<span class="font-body-md text-body-md text-on-surface">Pusat Bantuan</span>
+</div>
+<button type="button" onclick="logout()" class="w-full text-left flex items-center gap-md p-md text-error hover:bg-error-container/20 rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md text-body-md">Keluar Sesi</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full h-4xl z-50 bg-surface flex justify-around items-center px-md pb-safe rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="courses.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm">Courses</span>
+</a>
+<a href="notes.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">note</span>
+<span class="font-label-sm text-label-sm">Catatan</span>
+</a>
+<!-- Active Tab: Profile -->
+<a href="profile.html" class="flex flex-col items-center justify-center text-primary font-bold transition-all scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for course progress bars
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.bg-secondary');
+            bars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        });
+
+        function logout() {
+            window.location.href = 'login.html';
+        }
+    </script>
+</body></html>
