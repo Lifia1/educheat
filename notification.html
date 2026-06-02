@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifikasi - EduCheat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        error: "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "on-primary-fixed": "#0b1f17",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#292b28",
+                        "on-secondary-container": "#336c60",
+                        "surface-bright": "#fcf9f8",
+                        "primary-fixed-dim": "#b5ccbf",
+                        "inverse-surface": "#303030",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "primary-container": "#1a2e25",
+                        "inverse-primary": "#b5ccbf",
+                        "secondary-fixed": "#b3eedf",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary": "#ffffff",
+                        background: "#fcf9f8",
+                        "tertiary-fixed": "#e3e3de",
+                        "surface-variant": "#e4e2e1",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "surface-container-high": "#eae7e7",
+                        "secondary-container": "#b0ecdc",
+                        "on-primary-fixed-variant": "#374b41",
+                        "on-primary-container": "#80968a",
+                        "on-secondary-fixed-variant": "#105044",
+                        outline: "#737874",
+                        primary: "#051911",
+                        "on-surface-variant": "#424844",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-fixed": "#d0e8da",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-container": "#91928e",
+                        "on-primary": "#ffffff",
+                        tertiary: "#151714",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        secondary: "#2e685c",
+                        "outline-variant": "#c2c8c3",
+                        surface: "#fcf9f8",
+                        "on-secondary-fixed": "#00201a",
+                        "surface-tint": "#4e6358",
+                        "secondary-fixed-dim": "#97d2c3"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        gutter: "24px",
+                        lg: "24px",
+                        "margin-desktop": "48px",
+                        unit: "8px",
+                        "4xl": "80px",
+                        "3xl": "56px",
+                        md: "16px",
+                        xs: "4px",
+                        "2xl": "40px",
+                        sm: "8px",
+                        xl: "32px"
+                    },
+                    fontFamily: {
+                        "body-sm": ["Inter"],
+                        "headline-h2": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-h6": ["Playfair Display"],
+                        "headline-h3": ["Playfair Display"],
+                        "headline-h2-mobile": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-h1-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-h5": ["Playfair Display"],
+                        "headline-h1": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-h2": ["48px", { lineHeight: "53px", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-h6": ["20px", { lineHeight: "24px", fontWeight: "600" }],
+                        "headline-h3": ["40px", { lineHeight: "44px", fontWeight: "600" }],
+                        "headline-h2-mobile": ["30px", { lineHeight: "34px", fontWeight: "700" }],
+                        "headline-h4": ["32px", { lineHeight: "36px", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+                        "headline-h1-mobile": ["36px", { lineHeight: "40px", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-h5": ["24px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-h1": ["56px", { lineHeight: "62px", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { background-color: #fcf9f8; -webkit-tap-highlight-color: transparent; }
+        .notification-card { transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+        .notification-card:hover { transform: translateY(-1px); box-shadow: 0 18px 40px rgba(5, 25, 17, 0.08); }
+        .notification-card.unread { background-color: #ebf7f1; border-color: #b0ecdc; }
+        .notification-card.read { opacity: 0.92; }
+        .notification-dot { width: 0.5rem; height: 0.5rem; border-radius: 9999px; background-color: #2e685c; }
+        .filter-button { border: 1px solid transparent; }
+        .filter-button.active { background-color: #2e685c; color: white; border-color: transparent; }
+        .filter-button:hover { border-color: #2e685c; }
+        .badge-pill { display: inline-flex; align-items: center; justify-content: center; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.625rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+        .empty-state { min-height: 280px; }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button id="backButton" class="cursor-pointer active:scale-95 transition-transform p-2 hover:bg-surface-variant/50 rounded-full" aria-label="Kembali">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-h5 text-headline-h5-mobile md:text-headline-h5 text-primary">Notifikasi</h1>
+<p class="text-body-sm text-on-surface-variant mt-xs">Semua pembaruan penting untuk belajar Anda.</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button id="settingsButton" class="cursor-pointer active:scale-95 transition-transform p-2 hover:bg-surface-variant/50 rounded-full" aria-label="Pengaturan">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" />
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-margin-mobile md:px-0 py-lg mb-32">
+<section class="mb-xl">
+<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-md">
+<div>
+<h2 class="font-headline-h6 text-headline-h6 text-primary">Ringkasan Notifikasi</h2>
+<p class="text-body-sm text-on-surface-variant mt-xs">Klik notifikasi untuk menandainya sudah dibaca, atau gunakan tombol untuk mengarsip semua sekaligus.</p>
+</div>
+<div class="flex flex-wrap gap-2 items-center">
+<button id="markAllReadBtn" class="px-4 py-2 rounded-xl bg-secondary text-on-secondary transition hover:bg-secondary-fixed">Tandai sudah dibaca</button>
+<button id="clearReadBtn" class="px-4 py-2 rounded-xl bg-surface border border-outline-variant text-on-surface transition hover:bg-surface-container-low">Bersihkan terbaca</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 items-center mb-md">
+<button type="button" data-filter="all" class="filter-button active px-4 py-2 rounded-full text-label-sm font-label-sm bg-secondary text-on-secondary">Semua</button>
+<button type="button" data-filter="unread" class="filter-button px-4 py-2 rounded-full text-label-sm font-label-sm text-on-surface-variant bg-surface">Belum Dibaca</button>
+<button type="button" data-filter="read" class="filter-button px-4 py-2 rounded-full text-label-sm font-label-sm text-on-surface-variant bg-surface">Sudah Dibaca</button>
+</div>
+<div id="notificationsList" class="space-y-sm"></div>
+<div id="empty-state" class="hidden flex-col items-center justify-center py-4xl text-center rounded-3xl bg-surface-container-high p-8 mt-lg empty-state">
+<div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">notifications_off</span>
+</div>
+<h3 class="font-headline-h5 text-headline-h5 text-primary">Belum Ada Notifikasi</h3>
+<p class="text-body-md text-on-surface-variant max-w-xs mt-sm">Semua notifikasi Anda sudah dibaca. Aktivitas belajar terbaru akan muncul di sini.</p>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 bg-surface px-4 border-t border-outline-variant shadow-sm">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        const notifications = [
+            {
+                id: 'achievement',
+                category: 'Terbaru',
+                title: 'Pencapaian Baru Terbuka!',
+                message: 'Selamat! Anda telah menyelesaikan 5 kuis berturut-turut dengan nilai sempurna.',
+                time: '2 mnt',
+                tag: 'Achievement',
+                icon: 'workspace_premium',
+                iconBg: 'bg-secondary-container',
+                iconColor: 'text-on-secondary-fixed-variant'
+            },
+            {
+                id: 'course-update',
+                category: 'Terbaru',
+                title: 'Materi Baru: Teori Kuantum',
+                message: 'Dr. Aris baru saja mengunggah video kuliah terbaru di kursus Fisika Modern.',
+                time: '45 mnt',
+                tag: 'Materi',
+                icon: 'school',
+                iconBg: 'bg-primary-fixed',
+                iconColor: 'text-primary'
+            },
+            {
+                id: 'discussion-reply',
+                category: 'Sebelumnya',
+                title: 'Balasan di Diskusi Matematika',
+                message: 'Sarah menjawab pertanyaan Anda tentang Integrasi Parsial: "Coba gunakan rumus..."',
+                time: '3 jam',
+                tag: 'Diskusi',
+                icon: 'chat',
+                iconBg: 'bg-tertiary-fixed',
+                iconColor: 'text-on-tertiary-fixed-variant'
+            },
+            {
+                id: 'system-update',
+                category: 'Sebelumnya',
+                title: 'Pembaruan Sistem Selesai',
+                message: 'Kami telah meningkatkan stabilitas aplikasi untuk pengalaman belajar yang lebih baik.',
+                time: 'Kemarin',
+                tag: 'Sistem',
+                icon: 'update',
+                iconBg: 'bg-surface-container-highest',
+                iconColor: 'text-on-surface-variant'
+            },
+            {
+                id: 'reminder',
+                category: 'Sebelumnya',
+                title: 'Ingat Belajar Hari Ini?',
+                message: 'Anda belum melanjutkan kursus Sejarah Dunia. Mari selesaikan modul 4!',
+                time: '2 hari',
+                tag: 'Pengingat',
+                icon: 'event_repeat',
+                iconBg: 'bg-primary-fixed',
+                iconColor: 'text-primary'
+            }
+        ];
+
+        const STORAGE_KEY = 'educheat-notifications-read';
+        const storedRead = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        const markAllReadBtn = document.getElementById('markAllReadBtn');
+        const clearReadBtn = document.getElementById('clearReadBtn');
+        const notificationsList = document.getElementById('notificationsList');
+        const emptyState = document.getElementById('empty-state');
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        let activeFilter = 'all';
+
+        function saveReadState() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(storedRead));
+        }
+
+        function isUnread(id) {
+            return storedRead[id] !== true;
+        }
+
+        function updateControls() {
+            const anyUnread = notifications.some(n => isUnread(n.id));
+            markAllReadBtn.disabled = !anyUnread;
+            markAllReadBtn.classList.toggle('opacity-50', !anyUnread);
+            markAllReadBtn.classList.toggle('pointer-events-none', !anyUnread);
+        }
+
+        function renderNotifications() {
+            notificationsList.innerHTML = '';
+
+            const filtered = notifications.filter(notification => {
+                if (activeFilter === 'unread') return isUnread(notification.id);
+                if (activeFilter === 'read') return !isUnread(notification.id);
+                return true;
+            });
+
+            if (!filtered.length) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            ['Terbaru', 'Sebelumnya'].forEach(sectionName => {
+                const sectionItems = filtered.filter(notification => notification.category === sectionName);
+                if (!sectionItems.length) return;
+
+                const sectionBlock = document.createElement('div');
+                sectionBlock.className = 'space-y-sm';
+                sectionBlock.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-headline-h6 text-headline-h6 ${sectionName === 'Terbaru' ? 'text-primary' : 'text-on-surface-variant'}">${sectionName}</h3>
+                        <span class="text-label-sm font-label-sm text-on-surface-variant">${sectionItems.length} item</span>
+                    </div>
+                `;
+
+                sectionItems.forEach(notification => {
+                    const card = document.createElement('button');
+                    card.type = 'button';
+                    card.className = `notification-card w-full text-left p-md rounded-xl border ${isUnread(notification.id) ? 'border-outline-variant unread' : 'border-transparent read'} flex gap-md items-start cursor-pointer group bg-surface`;
+                    card.innerHTML = `
+                        <div class="w-12 h-12 rounded-full ${notification.iconBg} flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined ${notification.iconColor}" style="font-variation-settings: 'FILL' 1;">${notification.icon}</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start gap-3">
+                                <h4 class="font-label-md text-label-md ${isUnread(notification.id) ? 'text-on-surface' : 'text-on-surface-variant'} group-hover:text-primary transition-colors">${notification.title}</h4>
+                                <span class="text-label-sm font-label-sm text-on-surface-variant">${notification.time}</span>
+                            </div>
+                            <p class="text-body-sm font-body-sm text-on-surface-variant mt-xs">${notification.message}</p>
+                            <div class="mt-sm flex flex-wrap items-center gap-2">
+                                <span class="badge-pill bg-secondary-fixed text-on-secondary-fixed-variant">${notification.tag}</span>
+                            </div>
+                        </div>
+                        ${isUnread(notification.id) ? '<div class="notification-dot self-center"></div>' : ''}
+                    `;
+
+                    card.addEventListener('click', () => {
+                        storedRead[notification.id] = true;
+                        saveReadState();
+                        updateControls();
+                        renderNotifications();
+                    });
+
+                    sectionBlock.appendChild(card);
+                });
+
+                notificationsList.appendChild(sectionBlock);
+            });
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                activeFilter = button.dataset.filter;
+                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-secondary', 'text-on-secondary'));
+                button.classList.add('active', 'bg-secondary', 'text-on-secondary');
+                renderNotifications();
+            });
+        });
+
+        markAllReadBtn.addEventListener('click', () => {
+            notifications.forEach(notification => {
+                storedRead[notification.id] = true;
+            });
+            saveReadState();
+            updateControls();
+            renderNotifications();
+        });
+
+        clearReadBtn.addEventListener('click', () => {
+            Object.keys(storedRead).forEach(key => delete storedRead[key]);
+            saveReadState();
+            renderNotifications();
+        });
+
+        document.getElementById('backButton').addEventListener('click', () => window.history.back());
+        document.getElementById('settingsButton').addEventListener('click', () => alert('Pengaturan notifikasi belum tersedia.'));
+
+        updateControls();
+        renderNotifications();
+    </script>
+</body>
+</html>

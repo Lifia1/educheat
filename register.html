@@ -72,7 +72,18 @@
           background: rgba(255, 255, 255, 0.7);
           border: 1.5px solid rgba(46, 104, 92, 0.2);
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          padding-left: 2.75rem;
+          padding-left: 3rem;
+        }
+        
+        .input-icon {
+          position: absolute;
+          left: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #a8aca8;
+          pointer-events: none;
+          transition: color 0.3s ease;
+          font-size: 1.25rem;
         }
         
         .input-field::placeholder {
@@ -115,6 +126,44 @@
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        .input-icon {
+          position: absolute;
+          left: 0.75rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #a8aca8;
+          pointer-events: none;
+          transition: color 0.3s ease;
+          font-size: 1.25rem;
+        }
+
+        .relative:focus-within .input-icon {
+          color: #2e685c;
+        }
+
+        .toggle-password {
+          position: absolute;
+          right: 0.75rem;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #a8aca8;
+          transition: all 0.2s ease;
+          padding: 4px;
+          border-radius: 4px;
+        }
+
+        .toggle-password:hover {
+          color: #2e685c;
+          background: rgba(46, 104, 92, 0.08);
+        }
+
+        .toggle-password .material-symbols-outlined {
+          font-size: 1.25rem;
         }
         
         .register-btn {
