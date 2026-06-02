@@ -5,16 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buat Diskusi - EduCheat</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = { theme: { extend: { colors: { primary: '#1A2E25', secondary: '#437C6F', accent: '#F5F5F0' } } } }
   </script>
 </head>
 <body class="bg-accent min-h-screen pb-20">
   <header class="bg-white p-4 flex justify-between items-center sticky top-0 shadow-sm">
-    <i onclick="history.back()" class="fa-solid fa-arrow-left text-2xl"></i>
-    <h1 class="font-semibold text-xl">Buat Diskusi</h1>
-    <button onclick="alert('Diskusi berhasil diposting!')" 
-            class="bg-primary text-white px-6 py-2 rounded-2xl text-sm font-medium">Posting</button>
+    <div class="flex items-center gap-3">
+      <button onclick="history.back()" class="material-symbols-outlined text-2xl text-primary">arrow_back</button>
+      <h1 class="font-semibold text-xl">Buat Diskusi</h1>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="material-symbols-outlined text-2xl text-primary">notifications</button>
+      <div class="w-10 h-10 rounded-full overflow-hidden border border-gray-200">
+        <img alt="Profile" class="w-full h-full object-cover" src="https://i.pinimg.com/736x/a0/c0/d9/a0c0d934c162b1594fcf1e46d9e3c305.jpg" />
+      </div>
+      <button onclick="alert('Diskusi berhasil diposting!')" class="bg-primary text-white px-6 py-2 rounded-2xl text-sm font-medium">Posting</button>
+    </div>
   </header>
 
   <main class="max-w-screen-xl mx-auto px-4 pt-6">

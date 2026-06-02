@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EduCheat - Learning Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#91928e",
+              tertiary: "#151714",
+              "primary-container": "#1a2e25",
+              "secondary-fixed": "#b3eedf",
+              "outline-variant": "#c2c8c3",
+              "tertiary-container": "#292b28",
+              outline: "#737874",
+              "surface-bright": "#fcf9f8",
+              primary: "#051911",
+              surface: "#fcf9f8",
+              "on-secondary-container": "#336c60",
+              "tertiary-fixed": "#e3e3de",
+              "on-surface-variant": "#424844",
+              secondary: "#2e685c",
+              "on-background": "#1b1c1c",
+              "primary-fixed": "#d0e8da",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-variant": "#e4e2e1",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#454744",
+              "on-surface": "#1b1c1c",
+              "inverse-on-surface": "#f3f0ef",
+              "surface-dim": "#dcd9d9",
+              "secondary-fixed-dim": "#97d2c3",
+              "on-primary-fixed-variant": "#374b41",
+              "error-container": "#ffdad6",
+              "inverse-surface": "#303030",
+              "on-secondary-fixed-variant": "#105044",
+              background: "#fcf9f8",
+              "on-primary-fixed": "#0b1f17",
+              "inverse-primary": "#b5ccbf",
+              "surface-container-low": "#f6f3f2",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#b5ccbf",
+              "on-primary-container": "#80968a",
+              "on-secondary": "#ffffff",
+              error: "#ba1a1a",
+              "surface-container-highest": "#e4e2e1",
+              "tertiary-fixed-dim": "#c6c7c2",
+              "surface-container": "#f0eded",
+              "surface-tint": "#4e6358",
+              "on-secondary-fixed": "#00201a",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              xl: "32px",
+              md: "16px",
+              "3xl": "56px",
+              xs: "4px",
+              "2xl": "40px",
+              "margin-desktop": "48px",
+              sm: "8px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              "4xl": "80px",
+              unit: "8px",
+              lg: "24px",
+            },
+            fontFamily: {
+              "body-lg": ["Inter"],
+              "headline-h1-mobile": ["Playfair Display"],
+              "headline-h2": ["Playfair Display"],
+              "label-md": ["Inter"],
+              "headline-h2-mobile": ["Playfair Display"],
+              "headline-h6": ["Playfair Display"],
+              "headline-h3": ["Playfair Display"],
+              "body-md": ["Inter"],
+              "headline-h5": ["Playfair Display"],
+              "headline-h4": ["Playfair Display"],
+              "body-sm": ["Inter"],
+              "headline-h1": ["Playfair Display"],
+              "label-sm": ["Inter"],
+            },
+            fontSize: {
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "headline-h1-mobile": ["36px", { lineHeight: "40px", fontWeight: "700" }],
+              "headline-h2": ["48px", { lineHeight: "53px", fontWeight: "700" }],
+              "label-md": ["14px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+              "headline-h2-mobile": ["30px", { lineHeight: "34px", fontWeight: "700" }],
+              "headline-h6": ["20px", { lineHeight: "24px", fontWeight: "600" }],
+              "headline-h3": ["40px", { lineHeight: "44px", fontWeight: "600" }],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-h5": ["24px", { lineHeight: "28px", fontWeight: "600" }],
+              "headline-h4": ["32px", { lineHeight: "36px", fontWeight: "600" }],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-h1": ["56px", { lineHeight: "62px", fontWeight: "700" }],
+              "label-sm": ["12px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "600" }],
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            border-bottom: 3px solid #1a2e25;
+            color: #051911;
+        }
+        .video-overlay {
+            background: linear-gradient(0deg, rgba(5,25,17,0.8) 0%, rgba(5,25,17,0) 50%);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center w-full px-margin-mobile h-3xl bg-surface border-b border-outline-variant shadow-none">
+<div class="flex items-center gap-md">
+<button class="p-xs hover:bg-surface-container-low transition-colors rounded-full flex items-center justify-center" onclick="history.back()">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-h6 text-headline-h6-mobile text-on-surface truncate max-w-[200px] md:max-w-none">Modul 3: Wireframing Dasar</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://i.pinimg.com/736x/a0/c0/d9/a0c0d934c162b1594fcf1e46d9e3c305.jpg" />
+</div>
+</div>
+</header>
+<main class="pt-3xl pb-4xl min-h-screen">
+<div class="max-w-7xl mx-auto md:px-margin-desktop">
+<section class="w-full bg-tertiary relative aspect-video md:rounded-xl overflow-hidden shadow-lg mt-0 md:mt-md">
+<img class="w-full h-full object-cover opacity-60" alt="Course hero image" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80" />
+<div class="absolute inset-0 flex items-center justify-center cursor-pointer group">
+<div class="w-20 h-20 bg-primary/90 text-on-primary rounded-full flex items-center justify-center transition-transform group-hover:scale-110 shadow-2xl">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="video-overlay absolute bottom-0 left-0 right-0 p-md flex items-center justify-between">
+<div class="flex items-center gap-md w-full text-on-primary">
+<span class="material-symbols-outlined">play_circle</span>
+<div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed w-[30%]"></div>
+</div>
+<span class="font-label-sm text-label-sm">12:45 / 35:20</span>
+<span class="material-symbols-outlined">fullscreen</span>
+</div>
+</div>
+</section>
+<div class="flex flex-col lg:flex-row gap-lg p-margin-mobile md:p-0 md:mt-lg">
+<div class="flex-1 space-y-lg">
+<nav class="flex border-b border-outline-variant bg-surface sticky top-[56px] z-40">
+<button class="flex-1 py-md font-label-md text-label-md transition-all active-tab text-primary" id="tab-materi" onclick="switchTab('materi')">Materi</button>
+<button class="flex-1 py-md font-label-md text-label-md hover:text-primary transition-all text-on-surface-variant" id="tab-diskusi" onclick="switchTab('diskusi')">Diskusi</button>
+<button class="flex-1 py-md font-label-md text-label-md hover:text-primary transition-all text-on-surface-variant" id="tab-catatan" onclick="switchTab('catatan')">Catatan</button>
+</nav>
+<div class="space-y-lg animate-in fade-in duration-500" id="content-materi">
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<h2 class="font-headline-h5 text-headline-h5 text-primary mb-md">Deskripsi Modul</h2>
+<p class="text-body-md text-on-surface-variant leading-relaxed mb-lg">
+Dalam modul ini, kita akan mempelajari prinsip-prinsip dasar pembuatan wireframe. Fokus utama adalah pada struktur informasi dan alur pengguna sebelum beralih ke desain visual yang mendetail. Anda akan mempelajari cara menggunakan elemen dasar untuk membangun kerangka kerja yang solid.
+</p>
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-primary">Progress Modul</span>
+<span class="font-label-md text-label-md text-secondary">30% Selesai</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div id="progressBar" class="h-full bg-secondary w-[30%] transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center gap-md">
+<button id="prevModule" class="flex-1 flex items-center justify-center gap-sm h-12 border border-primary text-primary font-label-md rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+Sebelumnya
+</button>
+<button id="nextModule" class="flex-1 flex items-center justify-center gap-sm h-12 bg-primary text-on-primary font-label-md rounded-lg hover:shadow-lg transition-all">
+Selanjutnya
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="space-y-md p-lg bg-surface-container-lowest rounded-xl border border-outline-variant hidden" id="content-diskusi">
+<h3 class="font-headline-h6 text-headline-h6">Forum Diskusi</h3>
+<div class="space-y-md" id="discussionList">
+<p class="text-on-surface-variant italic" id="discussionEmpty">Belum ada diskusi untuk modul ini.</p>
+</div>
+<form id="discussionForm" class="space-y-md">
+<label for="discussionInput" class="font-label-md text-label-md text-on-surface">Tulis tanggapan</label>
+<textarea id="discussionInput" rows="4" class="w-full rounded-2xl border border-outline-variant bg-white p-md text-body-md text-on-surface outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" placeholder="Tulis tanggapan Anda..."></textarea>
+<button type="submit" class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-md hover:bg-primary-container transition-colors">Kirim Tanggapan</button>
+</form>
+</div>
+<div class="space-y-md p-lg bg-surface-container-lowest rounded-xl border border-outline-variant hidden" id="content-catatan">
+<h3 class="font-headline-h6 text-headline-h6">Catatan</h3>
+<div class="space-y-md" id="noteList">
+<p class="text-on-surface-variant italic" id="noteEmpty">Tidak ada catatan saat ini. Tambahkan poin penting saat kamu belajar.</p>
+</div>
+<form id="noteForm" class="space-y-md">
+<label for="noteInput" class="font-label-md text-label-md text-on-surface">Tambah catatan</label>
+<textarea id="noteInput" rows="4" class="w-full rounded-2xl border border-outline-variant bg-white p-md text-body-md text-on-surface outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" placeholder="Tuliskan catatanmu..."></textarea>
+<button type="submit" class="w-full h-12 rounded-xl bg-secondary text-on-secondary font-label-md hover:bg-secondary-fixed transition-colors">Simpan Catatan</button>
+</form>
+</div>
+</div>
+<aside class="w-full lg:w-80 space-y-lg">
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-md">Daftar Modul</h3>
+<div class="space-y-md">
+<button type="button" class="module-item w-full flex gap-md items-center rounded-2xl border border-outline-variant bg-white px-md py-sm text-left transition-all hover:border-secondary hover:bg-surface-container-low" data-module="1">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">1. Pengenalan UI/UX</p>
+<p class="text-xs text-on-tertiary-container">15:00 • Selesai</p>
+</div>
+</button>
+<button type="button" class="module-item w-full flex gap-md items-center rounded-2xl border border-outline-variant bg-white px-md py-sm text-left transition-all hover:border-secondary hover:bg-surface-container-low" data-module="2">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">2. Design Thinking</p>
+<p class="text-xs text-on-tertiary-container">20:10 • Selesai</p>
+</div>
+</button>
+<button type="button" class="module-item w-full flex gap-md items-center rounded-2xl border border-secondary bg-primary-container/5 px-md py-sm text-left transition-all shadow-sm" data-module="3">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined">play_arrow</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">3. Wireframing Dasar</p>
+<p class="text-xs text-secondary font-bold">Sedang Diputar</p>
+</div>
+</button>
+<button type="button" class="module-item w-full flex gap-md items-center rounded-2xl border border-transparent bg-surface-container-low px-md py-sm text-left text-on-surface-variant opacity-70 cursor-not-allowed" data-module="4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">4. Prototyping Lanjut</p>
+<p class="text-xs text-on-tertiary-container">25:40 • Terkunci</p>
+</div>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full h-4xl z-50 bg-surface flex justify-around items-center px-md pb-safe rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="courses.html" class="flex flex-col items-center justify-center text-primary font-bold transition-all scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-sm text-label-sm">Courses</span>
+</a>
+<a href="search.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<a href="profile.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        function switchTab(tabId) {
+            document.querySelectorAll('[id^="content-"]').forEach(panel => panel.classList.add('hidden'));
+            document.querySelectorAll('[id^="tab-"]').forEach(tab => {
+                tab.classList.remove('active-tab', 'text-primary');
+                tab.classList.add('text-on-surface-variant');
+            });
+            const activePanel = document.getElementById(`content-${tabId}`);
+            if (activePanel) activePanel.classList.remove('hidden');
+            const activeTab = document.getElementById(`tab-${tabId}`);
+            if (activeTab) {
+                activeTab.classList.add('active-tab', 'text-primary');
+                activeTab.classList.remove('text-on-surface-variant');
+            }
+        }
+
+        const moduleData = {
+            1: { title: 'Pengenalan UI/UX', subtitle: '15:00 • Selesai', progress: 100 },
+            2: { title: 'Design Thinking', subtitle: '20:10 • Selesai', progress: 100 },
+            3: { title: 'Wireframing Dasar', subtitle: '12:45 • Sedang Diputar', progress: 30 },
+            4: { title: 'Prototyping Lanjut', subtitle: '25:40 • Terkunci', progress: 0, locked: true },
+        };
+
+        function selectModule(moduleId) {
+            const meta = moduleData[moduleId];
+            if (!meta || meta.locked) return;
+            document.querySelectorAll('.module-item').forEach(item => {
+                item.classList.remove('border-secondary', 'bg-primary-container/5', 'shadow-sm');
+                item.classList.add('border-outline-variant', 'bg-white');
+                const id = item.dataset.module;
+                if (id === moduleId) {
+                    item.classList.remove('border-outline-variant', 'bg-white');
+                    item.classList.add('border-secondary', 'bg-primary-container/5', 'shadow-sm');
+                }
+            });
+            document.querySelector('h1').textContent = `Modul ${moduleId}: ${meta.title}`;
+            document.getElementById('progressBar').style.width = `${meta.progress}%`;
+        }
+
+        document.querySelectorAll('.module-item').forEach(item => {
+            item.addEventListener('click', () => selectModule(item.dataset.module));
+        });
+
+        document.getElementById('prevModule').addEventListener('click', () => {
+            const current = document.querySelector('.module-item.border-secondary');
+            if (!current) return;
+            const currentId = Number(current.dataset.module);
+            const prev = document.querySelector(`.module-item[data-module="${currentId - 1}"]`);
+            if (prev) selectModule(prev.dataset.module);
+        });
+
+        document.getElementById('nextModule').addEventListener('click', () => {
+            const current = document.querySelector('.module-item.border-secondary');
+            if (!current) return;
+            const currentId = Number(current.dataset.module);
+            const next = document.querySelector(`.module-item[data-module="${currentId + 1}"]`);
+            if (next) selectModule(next.dataset.module);
+        });
+
+        const discussionKey = 'course-modul-discussions';
+        const noteKey = 'course-modul-notes';
+
+        function getSavedItems(key) {
+            try {
+                return JSON.parse(localStorage.getItem(key) || '[]');
+            } catch {
+                return [];
+            }
+        }
+
+        function saveItems(key, items) {
+            localStorage.setItem(key, JSON.stringify(items));
+        }
+
+        function renderDiscussion() {
+            const discussions = getSavedItems(discussionKey);
+            const list = document.getElementById('discussionList');
+            const empty = document.getElementById('discussionEmpty');
+            list.innerHTML = '';
+            if (!discussions.length) {
+                empty.classList.remove('hidden');
+                list.appendChild(empty);
+                return;
+            }
+            empty.classList.add('hidden');
+            discussions.slice().reverse().forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'rounded-3xl border border-outline-variant bg-white p-md shadow-sm';
+                card.innerHTML = `<p class="text-body-md text-on-surface">${item.text}</p><p class="mt-3 text-xs text-on-surface-variant">${item.time}</p>`;
+                list.appendChild(card);
+            });
+        }
+
+        function renderNotes() {
+            const notes = getSavedItems(noteKey);
+            const list = document.getElementById('noteList');
+            const empty = document.getElementById('noteEmpty');
+            list.innerHTML = '';
+            if (!notes.length) {
+                empty.classList.remove('hidden');
+                list.appendChild(empty);
+                return;
+            }
+            empty.classList.add('hidden');
+            notes.slice().reverse().forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'rounded-3xl border border-outline-variant bg-white p-md shadow-sm';
+                card.innerHTML = `<p class="text-body-md text-on-surface">${item.text}</p><p class="mt-3 text-xs text-on-surface-variant">${item.time}</p>`;
+                list.appendChild(card);
+            });
+        }
+
+        document.getElementById('discussionForm').addEventListener('submit', event => {
+            event.preventDefault();
+            const input = document.getElementById('discussionInput');
+            const value = input.value.trim();
+            if (!value) return;
+            const discussions = getSavedItems(discussionKey);
+            discussions.push({ text: value, time: new Date().toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' }) });
+            saveItems(discussionKey, discussions);
+            input.value = '';
+            renderDiscussion();
+            switchTab('diskusi');
+        });
+
+        document.getElementById('noteForm').addEventListener('submit', event => {
+            event.preventDefault();
+            const input = document.getElementById('noteInput');
+            const value = input.value.trim();
+            if (!value) return;
+            const notes = getSavedItems(noteKey);
+            notes.push({ text: value, time: new Date().toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' }) });
+            saveItems(noteKey, notes);
+            input.value = '';
+            renderNotes();
+            switchTab('catatan');
+        });
+
+        renderDiscussion();
+        renderNotes();
+    </script>
+</body>
+</html>

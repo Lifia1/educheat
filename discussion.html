@@ -128,12 +128,16 @@
   </head>
 <body class="bg-background text-on-background min-h-screen font-body-md">
 <header class="flex justify-between items-center w-full px-margin-mobile h-3xl bg-surface z-50 fixed top-0 border-b border-outline-variant">
-<div>
-<h1 class="font-headline-h6 text-headline-h6-mobile text-on-surface">Forum Diskusi</h1>
-</div>
-<button id="newTopicBtn" class="px-md py-xs rounded-full bg-primary text-on-primary font-label-sm hover:bg-primary-container transition-colors">
-+ Diskusi
-</button>
+  <h1 class="font-headline-h6 text-headline-h6-mobile text-on-surface">Forum Diskusi</h1>
+  <div class="flex items-center gap-md">
+    <button class="material-symbols-outlined text-primary hover:bg-surface-container-low transition-colors p-sm rounded-full">notifications</button>
+    <button id="newTopicBtn" class="px-md py-xs rounded-full bg-primary text-on-primary font-label-sm hover:bg-primary-container transition-colors">
+      + Diskusi
+    </button>
+    <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+      <img alt="User Profile" class="w-full h-full object-cover" src="https://i.pinimg.com/736x/a0/c0/d9/a0c0d934c162b1594fcf1e46d9e3c305.jpg" />
+    </div>
+  </div>
 </header>
 <main class="pt-3xl pb-[110px] px-margin-mobile max-w-screen-md mx-auto">
 <div class="mt-lg space-y-lg" id="discussionList"></div>
@@ -147,9 +151,9 @@
 <span class="material-symbols-outlined">school</span>
 <span class="font-label-sm text-label-sm">Courses</span>
 </a>
-<a href="notes.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
-<span class="material-symbols-outlined">note</span>
-<span class="font-label-sm text-label-sm">Catatan</span>
+<a href="search.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
 </a>
 <a href="profile.html" class="flex flex-col items-center justify-center text-on-surface-variant transition-all hover:text-secondary">
 <span class="material-symbols-outlined">person</span>
