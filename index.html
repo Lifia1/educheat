@@ -3,306 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduCheat - Home</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#1A2E25',
-            secondary: '#437C6F',
-            surface: '#fcf9f8',
-          }
-        }
-      }
-    }
-  </script>
-
+  <title>EduCheat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #f4f1ef; }
-    .headline { font-family: 'Playfair Display', serif; }
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-    .category-btn { transition: all 0.2s ease; }
-    .category-btn.active { background: #1A2E25; color: white; }
-    .category-btn:not(.active) { background: white; color: #374151; border: 1px solid #e5e7eb; }
-    .category-btn:not(.active):hover { background: #f3f4f6; }
-    .progress-bar { transition: width 0.6s ease; }
-    @keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:.4;} }
-    .live-dot { animation: pulse-dot 1.5s ease infinite; }
-    .course-card { cursor: pointer; transition: transform 0.15s ease; }
-    .course-card:active { transform: scale(0.97); }
+    body { background: linear-gradient(145deg, #1A2E25, #437C6F); }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-1 { animation: fadeInUp 0.7s ease forwards; }
+    .fade-2 { animation: fadeInUp 0.7s ease 0.3s forwards; opacity: 0; }
+    .fade-3 { animation: fadeInUp 0.7s ease 0.6s forwards; opacity: 0; }
   </style>
 </head>
-<body class="min-h-screen pb-24">
+<body class="min-h-screen flex items-center justify-center text-white">
+  <div class="text-center flex flex-col items-center">
 
-  <!-- Top AppBar -->
-  <header class="flex justify-between items-center w-full px-5 h-16 bg-white border-b border-gray-100 fixed top-0 z-50">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-        <span class="text-white font-black text-sm headline">E</span>
-      </div>
-      <h1 class="font-bold text-xl text-primary headline">EduCheat</h1>
+    <!-- Logo SVG inline -->
+    <div class="fade-1 mb-6">
+      <svg width="160" height="160" viewBox="0 0 556 556" xmlns="http://www.w3.org/2000/svg"
+           style="filter: drop-shadow(0 0 20px rgba(255,255,255,0.15));">
+        <rect x="30" y="30" width="496" height="496" fill="none" stroke="white" stroke-width="22"/>
+        <rect x="176" y="92" width="210" height="290" fill="none" stroke="white" stroke-width="18"/>
+        <text x="278" y="310" text-anchor="middle"
+              font-family="Arial Black, sans-serif" font-weight="900"
+              font-size="200" fill="white" letter-spacing="-4">E</text>
+        <text x="278" y="480" text-anchor="middle"
+              font-family="Arial Black, sans-serif" font-weight="900"
+              font-size="58" fill="white" letter-spacing="14">EDUCHEAT</text>
+      </svg>
     </div>
-    <div class="flex items-center gap-2">
-      <button class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
-        <span class="material-symbols-outlined text-gray-600" style="font-size:22px">notifications</span>
-        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full live-dot"></span>
-      </button>
-      <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-secondary">
-        <img src="https://i.pinimg.com/736x/a0/c0/d9/a0c0d934c162b1594fcf1e46d9e3c305.jpg" alt="Profile" class="w-full h-full object-cover">
-      </div>
+
+    <!-- Tagline -->
+    <div class="fade-2 mb-20">
+      <p class="text-lg opacity-85 tracking-wide">Belajar Kapan Saja, Di Mana Saja</p>
     </div>
-  </header>
 
-  <main class="mt-16 pb-6 space-y-7">
-
-    <!-- Hero Section — flat, no gradient -->
-    <section class="bg-primary px-5 pt-7 pb-8">
-      <div class="flex justify-between items-start">
-        <div>
-          <p class="text-emerald-400 text-sm font-medium mb-1">Selamat datang kembali 👋</p>
-          <h1 id="userName" class="text-3xl font-bold text-white headline mb-1">Lifia A</h1>
-          <p class="text-gray-400 text-sm">Terus semangat belajarnya!</p>
-        </div>
-        <div class="flex flex-col items-center bg-white/10 px-3 py-2 rounded-2xl border border-white/10">
-          <span class="material-symbols-outlined fill-icon text-amber-400" style="font-size:26px">local_fire_department</span>
-          <span class="font-bold text-white text-lg leading-none">5</span>
-          <span class="text-gray-400 text-xs">Hari</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-3 gap-3 mt-6">
-        <div class="bg-white/10 rounded-xl p-3 text-center border border-white/10">
-          <p class="text-white font-bold text-xl">3</p>
-          <p class="text-gray-400 text-xs mt-0.5">Kursus Aktif</p>
-        </div>
-        <div class="bg-white/10 rounded-xl p-3 text-center border border-white/10">
-          <p class="text-white font-bold text-xl">14</p>
-          <p class="text-gray-400 text-xs mt-0.5">Modul Selesai</p>
-        </div>
-        <div class="bg-white/10 rounded-xl p-3 text-center border border-white/10">
-          <p class="text-white font-bold text-xl">82%</p>
-          <p class="text-gray-400 text-xs mt-0.5">Rata-rata Nilai</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Continue Learning -->
-    <section class="px-5">
-      <div class="flex justify-between items-center mb-3">
-        <h2 class="text-base font-semibold text-gray-900">Lanjutkan Belajar</h2>
-        <a href="courses.html" class="text-secondary text-sm font-medium">Lihat semua</a>
-      </div>
-      <div onclick="location.href='course-detail.html'" class="bg-white rounded-2xl overflow-hidden border border-gray-100 cursor-pointer course-card">
-        <div class="relative">
-          <img src="https://picsum.photos/id/1015/600/300" alt="UI/UX" class="w-full h-36 object-cover">
-          <div class="absolute top-3 left-3 bg-white/90 px-2.5 py-1 rounded-full flex items-center gap-1">
-            <span class="w-2 h-2 bg-green-500 rounded-full live-dot"></span>
-            <span class="text-xs font-medium text-gray-700">Sedang Belajar</span>
-          </div>
-          <div class="absolute top-3 right-3 bg-secondary text-white text-xs px-2.5 py-1 rounded-full font-medium">UI/UX</div>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-gray-900 text-base">UI/UX Fundamentals</h3>
-          <p class="text-sm text-gray-500 mt-0.5">Modul 3 dari 10 · Wireframing</p>
-          <div class="mt-3">
-            <div class="flex justify-between text-xs text-gray-500 mb-1.5">
-              <span>Progress</span>
-              <span class="font-medium text-secondary">35%</span>
-            </div>
-            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-              <div class="bg-secondary h-2 rounded-full progress-bar" style="width:35%"></div>
-            </div>
-          </div>
-          <button class="mt-4 w-full bg-primary text-white text-sm font-medium py-2.5 rounded-xl hover:bg-secondary transition-colors">
-            Lanjutkan →
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="px-5">
-      <h2 class="text-base font-semibold text-gray-900 mb-3">Kategori</h2>
-      <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-1" id="categoryBar">
-        <button class="category-btn active flex items-center gap-1.5 px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium" data-cat="all">
-          <span class="material-symbols-outlined" style="font-size:16px">apps</span> Semua
-        </button>
-        <button class="category-btn flex items-center gap-1.5 px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium" data-cat="uiux">
-          <span class="material-symbols-outlined" style="font-size:16px">palette</span> UI/UX
-        </button>
-        <button class="category-btn flex items-center gap-1.5 px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium" data-cat="webdev">
-          <span class="material-symbols-outlined" style="font-size:16px">code</span> Web Dev
-        </button>
-        <button class="category-btn flex items-center gap-1.5 px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium" data-cat="data">
-          <span class="material-symbols-outlined" style="font-size:16px">analytics</span> Data
-        </button>
-        <button class="category-btn flex items-center gap-1.5 px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium" data-cat="mobile">
-          <span class="material-symbols-outlined" style="font-size:16px">smartphone</span> Mobile
-        </button>
-        <button class="category-btn flex items-center gap-1.5 px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium" data-cat="marketing">
-          <span class="material-symbols-outlined" style="font-size:16px">campaign</span> Marketing
-        </button>
-      </div>
-    </section>
-
-    <!-- Recommendations -->
-    <section class="px-5">
-      <div class="flex justify-between items-center mb-3">
-        <h2 class="text-base font-semibold text-gray-900">Rekomendasi Untukmu</h2>
-        <a href="courses.html" class="text-secondary text-sm font-medium">Lihat semua</a>
-      </div>
-      <div class="flex gap-3 overflow-x-auto scrollbar-hide pb-2" id="recommendations"></div>
-    </section>
-
-    <!-- Popular This Week -->
-    <section class="px-5">
-      <h2 class="text-base font-semibold text-gray-900 mb-3">Populer Minggu Ini</h2>
-      <div class="space-y-3" id="popularList"></div>
-    </section>
-
-    <!-- New Courses -->
-    <section class="px-5">
-      <div class="flex justify-between items-center mb-3">
-        <h2 class="text-base font-semibold text-gray-900">Kursus Baru</h2>
-        <a href="courses.html" class="text-secondary text-sm font-medium">Lihat semua</a>
-      </div>
-      <div class="grid grid-cols-2 gap-3" id="newCourses"></div>
-    </section>
-
-  </main>
-
-  <!-- Bottom Navigation -->
-   <nav class="fixed bottom-0 left-0 w-full h-16 z-50 bg-white border-t border-gray-200 flex justify-around items-center px-4 pb-4 rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
-    <a href="index.html" class="flex flex-col items-center justify-center text-primary font-bold transition-all">
-      <span class="material-symbols-outlined">home</span>
-      <span class="text-xs">Home</span>
-    </a>
-    <a href="courses.html" class="flex flex-col items-center justify-center text-gray-500 transition-all hover:text-secondary">
-      <span class="material-symbols-outlined">school</span>
-      <span class="text-xs">Courses</span>
-    </a>
-    <a href="search.html" class="flex flex-col items-center justify-center text-gray-500 transition-all hover:text-secondary">
-      <span class="material-symbols-outlined">search</span>
-      <span class="text-xs">Search</span>
-    </a>
-    <a href="profile.html" class="flex flex-col items-center justify-center text-gray-500 transition-all hover:text-secondary">
-      <span class="material-symbols-outlined">person</span>
-      <span class="text-xs">Profil</span>
-    </a>
-  </nav>
+    <!-- Loading spinner -->
+    <div class="fade-3 flex flex-col items-center gap-3">
+      <div class="w-9 h-9 border-[3px] border-white/25 border-t-white rounded-full animate-spin"></div>
+      <p class="text-sm opacity-50 tracking-wider">Memuat...</p>
+    </div>
+  </div>
 
   <script>
-    const user = JSON.parse(localStorage.getItem('user')) || { name: 'Lifia A' };
-    document.getElementById('userName').textContent = user.name;
-
-    const allCourses = [
-      { title: 'Figma Dasar', cat: 'uiux',      modules: 10, price: 'Gratis',      badge: 'Gratis',   img: 'https://picsum.photos/id/0/400/240',   rating: 4.9, students: '12k' },
-      { title: 'HTML & CSS Mastery', cat: 'webdev',  modules: 20, price: 'Rp 79.000',  badge: 'Terlaris', img: 'https://picsum.photos/id/48/400/240',  rating: 4.8, students: '9.2k' },
-      { title: 'Data Science 101',   cat: 'data',    modules: 15, price: 'Rp 129.000', badge: 'Populer',  img: 'https://picsum.photos/id/20/400/240',  rating: 4.7, students: '7.5k' },
-      { title: 'React JS Pemula',    cat: 'webdev',  modules: 18, price: 'Rp 99.000',  badge: 'Baru',     img: 'https://picsum.photos/id/119/400/240', rating: 4.8, students: '5.1k' },
-      { title: 'Flutter & Dart',     cat: 'mobile',  modules: 22, price: 'Rp 149.000', badge: 'Populer',  img: 'https://picsum.photos/id/160/400/240', rating: 4.6, students: '4.3k' },
-      { title: 'Python untuk Data',  cat: 'data',    modules: 25, price: 'Rp 109.000', badge: 'Terlaris', img: 'https://picsum.photos/id/60/400/240',  rating: 4.9, students: '11k' },
-      { title: 'Digital Marketing',  cat: 'marketing', modules: 12, price: 'Rp 89.000', badge: 'Baru',   img: 'https://picsum.photos/id/96/400/240',  rating: 4.5, students: '3.8k' },
-      { title: 'Android Kotlin',     cat: 'mobile',  modules: 20, price: 'Rp 119.000', badge: '',        img: 'https://picsum.photos/id/180/400/240', rating: 4.7, students: '2.9k' },
-      { title: 'UI Motion Design',   cat: 'uiux',    modules: 8,  price: 'Rp 69.000',  badge: 'Baru',    img: 'https://picsum.photos/id/26/400/240',  rating: 4.8, students: '1.7k' },
-      { title: 'SEO & Content',      cat: 'marketing', modules: 10, price: 'Gratis',   badge: 'Gratis',  img: 'https://picsum.photos/id/42/400/240',  rating: 4.4, students: '6.2k' },
-    ];
-
-    const badgeColor = {
-      'Gratis':   'bg-emerald-100 text-emerald-700',
-      'Terlaris': 'bg-amber-100 text-amber-700',
-      'Populer':  'bg-blue-100 text-blue-700',
-      'Baru':     'bg-purple-100 text-purple-700',
-    };
-
-    function renderRecommendations(courses) {
-      document.getElementById('recommendations').innerHTML = courses.slice(0, 6).map(r => `
-        <div onclick="location.href='course-detail.html'" class="course-card min-w-[190px] bg-white rounded-2xl overflow-hidden border border-gray-100">
-          <div class="relative">
-            <img src="${r.img}" class="w-full h-28 object-cover">
-            ${r.badge ? `<span class="absolute top-2 left-2 text-xs font-medium px-2 py-0.5 rounded-full ${badgeColor[r.badge]||''}">${r.badge}</span>` : ''}
-          </div>
-          <div class="p-3">
-            <h4 class="font-semibold text-sm text-gray-900 leading-tight">${r.title}</h4>
-            <p class="text-xs text-gray-400 mt-0.5">${r.modules} Modul</p>
-            <div class="flex items-center gap-1 mt-1.5">
-              <span class="material-symbols-outlined fill-icon text-amber-400" style="font-size:13px">star</span>
-              <span class="text-xs font-medium text-gray-700">${r.rating}</span>
-              <span class="text-gray-300 text-xs">·</span>
-              <span class="text-xs text-gray-400">${r.students}</span>
-            </div>
-            <span class="font-semibold text-sm text-secondary mt-2 block">${r.price}</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function renderPopular(courses) {
-      const pop = [...courses].sort((a,b) => parseFloat(b.students) - parseFloat(a.students)).slice(0,3);
-      document.getElementById('popularList').innerHTML = pop.map((r,i) => `
-        <div onclick="location.href='course-detail.html'" class="course-card bg-white rounded-2xl border border-gray-100 flex gap-3 p-3">
-          <div class="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden">
-            <img src="${r.img}" class="w-full h-full object-cover">
-            <div class="absolute inset-0 flex items-center justify-center bg-black/25">
-              <span class="text-white font-black text-xl">#${i+1}</span>
-            </div>
-          </div>
-          <div class="flex-1 min-w-0">
-            <h4 class="font-semibold text-sm text-gray-900 leading-tight">${r.title}</h4>
-            <p class="text-xs text-gray-400 mt-0.5">${r.modules} Modul</p>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="material-symbols-outlined fill-icon text-amber-400" style="font-size:13px">star</span>
-              <span class="text-xs font-medium">${r.rating}</span>
-              <span class="text-gray-300 text-xs">·</span>
-              <span class="text-xs text-gray-400">${r.students} pelajar</span>
-            </div>
-            <span class="font-semibold text-sm text-secondary mt-1 block">${r.price}</span>
-          </div>
-          <div class="flex items-center">
-            <span class="material-symbols-outlined text-gray-300" style="font-size:18px">chevron_right</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function renderNewCourses(courses) {
-      const newOnes = courses.filter(c => c.badge === 'Baru');
-      document.getElementById('newCourses').innerHTML = newOnes.map(r => `
-        <div onclick="location.href='course-detail.html'" class="course-card bg-white rounded-2xl overflow-hidden border border-gray-100">
-          <img src="${r.img}" class="w-full h-24 object-cover">
-          <div class="p-3">
-            <span class="text-xs font-medium px-2 py-0.5 rounded-full ${badgeColor['Baru']} mb-1.5 inline-block">Baru</span>
-            <h4 class="font-semibold text-sm text-gray-900 leading-tight">${r.title}</h4>
-            <p class="text-xs text-gray-400 mt-0.5">${r.modules} Modul</p>
-            <span class="font-semibold text-sm text-secondary mt-2 block">${r.price}</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function filterAndRender(cat) {
-      const filtered = cat === 'all' ? allCourses : allCourses.filter(c => c.cat === cat);
-      renderRecommendations(filtered);
-      renderPopular(filtered.length >= 3 ? filtered : allCourses);
-    }
-
-    document.getElementById('categoryBar').addEventListener('click', e => {
-      const btn = e.target.closest('.category-btn');
-      if (!btn) return;
-      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filterAndRender(btn.dataset.cat);
-    });
-
-    filterAndRender('all');
-    renderNewCourses(allCourses);
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 2200);
   </script>
 </body>
 </html>
